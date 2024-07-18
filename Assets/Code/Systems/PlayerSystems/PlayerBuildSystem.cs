@@ -36,7 +36,7 @@ namespace MSuhininTestovoe.B2B
             foreach (int entity in _filter)
             {
                 ref PrefabComponent prefabComponent = ref _prefabPool.Get(entity);
-                ref TransformComponent transformComponent = ref _transformComponentPool.Get(entity);
+                ref TransformComponent transformComponent = ref _transformComponentPool.Add(entity);
                 ref PlayerStartPositionComponent playerPosition = ref _playerStartPositionComponentPool.Get(entity);
                 ref PlayerRigidBodyComponent playerRigidBodyComponent = ref _playerRigidBodyComponentPool.Add(entity);
                 ref BoxColliderComponent boxColliderComponent = ref _playerBoxColliderComponentPool.Add(entity);

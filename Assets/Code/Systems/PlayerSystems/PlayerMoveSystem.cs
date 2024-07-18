@@ -10,7 +10,6 @@ namespace MSuhininTestovoe.B2B
     {
         private EcsFilter _playerFilter;
         private EcsPool<PlayerInputComponent> _playerInputComponentPool;
-        private EcsPool<IsPlayerControlComponent> _isPlayerMoveComponentPool;
         private EcsPool<TransformComponent> _transformComponentPool;
         private ITimeService _timeService;
         private   PlayerSharedData _sharedData;
@@ -21,13 +20,13 @@ namespace MSuhininTestovoe.B2B
         {
             EcsWorld world = systems.GetWorld();
             _sharedData = systems.GetShared<SharedData>().GetPlayerSharedData;
-            _playerFilter = world.Filter<IsPlayerComponent>()
+            _playerFilter = world
+                .Filter<IsPlayerComponent>()
+                .Inc<PlayerInputComponent>()
                 .Inc<TransformComponent>()
-                .Inc<IsPlayerControlComponent>()
                 .End();
             _playerInputComponentPool = world.GetPool<PlayerInputComponent>();
             _transformComponentPool = world.GetPool<TransformComponent>();
-            _isPlayerMoveComponentPool = world.GetPool<IsPlayerControlComponent>();
             _timeService = Service<ITimeService>.Get();
         }
 
@@ -38,10 +37,8 @@ namespace MSuhininTestovoe.B2B
             {
                 ref TransformComponent transformComponent = ref _transformComponentPool.Get(entity);
                 ref PlayerInputComponent playerInputComponent = ref _playerInputComponentPool.Get(entity);
-
-                if (_isPlayerMoveComponentPool.Has(entity))
-                    PlayerMoving(ref transformComponent,
-                        ref playerInputComponent);
+       
+                PlayerMoving(ref transformComponent, ref playerInputComponent);
             }
         }
 
