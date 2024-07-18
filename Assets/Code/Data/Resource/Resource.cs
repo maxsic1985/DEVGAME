@@ -1,7 +1,7 @@
 using System;
-using Mono.Cecil;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+
 
 namespace MSuhininTestovoe.B2B
 {
@@ -10,7 +10,6 @@ namespace MSuhininTestovoe.B2B
     {
         public string ID;
         public string Name;
-        public ResourceType Type;
         public AssetReferenceSprite Sprite;
         public ScriptableObject AdditionalData;
     }
