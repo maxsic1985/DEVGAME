@@ -4,7 +4,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     public sealed class SharedData
     {

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using UnityEngine;
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     public interface IPoolService
     {

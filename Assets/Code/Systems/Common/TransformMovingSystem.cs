@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Scripting;
 
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     public sealed class TransformMovingSystem :EcsUguiCallbackSystem, IEcsInitSystem, IEcsRunSystem
         {

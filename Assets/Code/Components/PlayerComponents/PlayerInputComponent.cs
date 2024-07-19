@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     public struct PlayerInputComponent
     {
         public float Horizontal;
         public float Vertical;
+        public float Fire;
+        
     }
 }

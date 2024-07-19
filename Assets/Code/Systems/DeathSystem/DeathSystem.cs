@@ -2,7 +2,7 @@ using Leopotam.EcsLite;
 using LeopotamGroup.Globals;
 
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     public class DeathSystem : IEcsInitSystem, IEcsRunSystem
     {

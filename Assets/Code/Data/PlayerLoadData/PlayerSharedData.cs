@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     [CreateAssetMenu(fileName = nameof(PlayerSharedData),
         menuName = EditorMenuConstants.CREATE_DATA_MENU_NAME + nameof(PlayerSharedData), order = 2)]

@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     public static class GameConstants
     {

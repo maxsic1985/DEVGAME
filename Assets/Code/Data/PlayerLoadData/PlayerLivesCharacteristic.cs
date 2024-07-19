@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     [Serializable]
     public sealed class PlayerLivesCharacteristic

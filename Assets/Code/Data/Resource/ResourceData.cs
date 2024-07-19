@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
       [CreateAssetMenu(fileName = nameof(ResourceData),
                      menuName = EditorMenuConstants.CREATE_DATA_MENU_NAME + nameof(ResourceData))]

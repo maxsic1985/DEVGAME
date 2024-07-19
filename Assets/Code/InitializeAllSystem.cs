@@ -1,7 +1,7 @@
 using LeoEcsPhysics;
 using Leopotam.EcsLite;
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     internal class InitializeAllSystem
     {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     [CreateAssetMenu(fileName = nameof(ResourcesData), 
         menuName = EditorMenuConstants.CREATE_DATA_MENU_NAME + nameof(ResourcesData))]

@@ -2,7 +2,7 @@
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     public struct DropComponent
     {

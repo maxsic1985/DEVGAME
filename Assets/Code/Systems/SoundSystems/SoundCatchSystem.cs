@@ -2,7 +2,7 @@ using Leopotam.EcsLite;
 using UnityEngine;
 
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     sealed class SoundCatchSystem : IEcsInitSystem, IEcsRunSystem
     {

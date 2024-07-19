@@ -4,7 +4,7 @@ using LeopotamGroup.Globals;
 using TMPro;
 
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     public class EnemyDeathSystem : IEcsInitSystem, IEcsRunSystem
     {

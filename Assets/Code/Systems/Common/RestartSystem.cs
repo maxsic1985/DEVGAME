@@ -4,7 +4,7 @@ using LeopotamGroup.Globals;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     public class RestartSystem : IEcsInitSystem, IEcsRunSystem
     {

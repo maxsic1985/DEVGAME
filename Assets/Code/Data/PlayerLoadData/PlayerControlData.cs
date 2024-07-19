@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     [CreateAssetMenu(fileName = nameof(PlayerControlData),
         menuName = EditorMenuConstants.CREATE_PLAYER + nameof(PlayerControlData))]

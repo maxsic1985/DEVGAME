@@ -3,7 +3,7 @@ using LeopotamGroup.Globals;
 
 
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     public sealed class TimerRunSystem : IEcsRunSystem, IEcsInitSystem
     {

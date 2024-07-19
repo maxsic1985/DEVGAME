@@ -4,7 +4,7 @@ using UnityEngine.AddressableAssets;
 
 
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     public sealed class PrefabsData
     {

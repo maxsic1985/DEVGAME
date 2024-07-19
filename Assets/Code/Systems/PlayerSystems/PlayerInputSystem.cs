@@ -3,7 +3,7 @@ using Leopotam.EcsLite.Di;
 using UnityEngine;
 
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem
     {
@@ -28,10 +28,9 @@ namespace MSuhininTestovoe.B2B
             foreach (int entity in _filter)
             {
                 ref PlayerInputComponent playerInputComponent = ref _playerInputComponentPool.Get(entity);
-                playerInputComponent.Horizontal = Input.GetAxisRaw("Horizontal");// Input.GetAxis("Horizontal"); 
+                playerInputComponent.Horizontal = Input.GetAxis("Horizontal"); 
                 playerInputComponent.Vertical =Input.GetAxis("Vertical");
-
-               
+                playerInputComponent.Fire = Input.GetAxis("Fire1");
             }
         }
     }

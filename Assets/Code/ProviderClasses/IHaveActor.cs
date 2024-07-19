@@ -1,4 +1,4 @@
-﻿namespace MSuhininTestovoe.B2B
+﻿namespace MSuhininTestovoe.Devgame
 {
     public interface IHaveActor
     {

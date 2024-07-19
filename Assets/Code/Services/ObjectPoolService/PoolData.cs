@@ -2,7 +2,7 @@
 using UnityEngine.AddressableAssets;
 using UnityEngine.Serialization;
 
-namespace MSuhininTestovoe.B2B
+namespace MSuhininTestovoe.Devgame
 {
     [CreateAssetMenu(menuName = "Pool/PoolData", fileName = "New PoolData", order = 51)]
     public class PoolData : ScriptableObject
