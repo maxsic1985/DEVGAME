@@ -13,6 +13,7 @@ namespace MSuhininTestovoe.Devgame
         [SerializeField] private Sprite _icon;
 
         [SerializeField] private float _baseSpeed;
+        [SerializeField] private float _baseRotateSpeed;
         [SerializeField] private int _baseScore;
         [SerializeField] private int _currentScore;
         [SerializeField] private Transform _transform;
@@ -23,6 +24,7 @@ namespace MSuhininTestovoe.Devgame
         public PlayerLivesCharacteristic GetLives => _playerLivesCharacteristic;
 
         public float Speed => _baseSpeed;
+        public float RotateSpeed => _baseRotateSpeed;
 
         public Transform Transform=>_transform;
         

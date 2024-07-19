@@ -5,7 +5,6 @@ using Pathfinding;
 using UnityEngine;
 
 
-
 namespace MSuhininTestovoe.Devgame
 {
     public class EnemyInitSystem : IEcsInitSystem, IEcsRunSystem
@@ -35,7 +34,7 @@ namespace MSuhininTestovoe.Devgame
                 .Filter<IsEnemyComponent>()
                 .Inc<ScriptableObjectComponent>()
                 .End();
-            
+
             _isEnemyPool = _world.GetPool<IsEnemyComponent>();
             _scriptableObjectPool = _world.GetPool<ScriptableObjectComponent>();
             _loadPrefabPool = _world.GetPool<LoadPrefabComponent>();
@@ -88,14 +87,15 @@ namespace MSuhininTestovoe.Devgame
 
                 spawn.SpawnLenght = dataInit.CountForInstantiate;
                 transformComponent.Value = pooled.gameObject.GetComponent<TransformView>().Transform;
-                enemyHealth.HealthValue = (int) pooled.GetComponent<HealthView>().Value.size.x;
+                enemyHealth.HealthValue = dataInit.Lives;
+                pooled.GetComponent<HealthView>().Value.size = new Vector2(enemyHealth.HealthValue, 1);
                 enemyBoxColliderComponent.ColliderValue = pooled.GetComponent<BoxCollider>();
                 enemyStartPositionComponent.Value = new List<Vector3>();
                 enemyStartRotationComponent.Value = new List<Vector3>();
                 aiDestanationComponent.AIDestinationSetter = pooled.gameObject.GetComponent<AIDestinationSetter>();
                 var index = Extensions.GetRandomDigit(0, dataInit.DropPrefabs.Count);
                 dropAssetComponent.Drop = dataInit.DropPrefabs[index];
-          
+
                 foreach (var pos in dataInit.StartPositions)
                 {
                     enemyStartPositionComponent.Value.Add(pos);
@@ -105,7 +105,7 @@ namespace MSuhininTestovoe.Devgame
                 {
                     enemyStartRotationComponent.Value.Add(pos);
                 }
-                
+
                 _poolService.Return(pooled);
             }
 

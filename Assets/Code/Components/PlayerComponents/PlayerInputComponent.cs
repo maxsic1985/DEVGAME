@@ -6,7 +6,8 @@ namespace MSuhininTestovoe.Devgame
     {
         public float Horizontal;
         public float Vertical;
-        public float Fire;
+        public bool Fire;
+        public bool Rotate;
         
     }
 }

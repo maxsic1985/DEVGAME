@@ -56,7 +56,7 @@ namespace MSuhininTestovoe.Devgame
                 }
 
                 ref PlayerInputComponent playerInputComponent = ref _playerInputComponentPool.Get(entity);
-                if (playerInputComponent.Fire>0) Attack();
+                if (playerInputComponent.Fire) Attack();
             }
         }
 
@@ -66,6 +66,7 @@ namespace MSuhininTestovoe.Devgame
             ref EnemyHealthComponent healthValue = ref _enemyHealthComponentPool.Get(_entity);
             healthValue.HealthValue -= 1;
             AddHitSoundComponent(ref _systems, SoundsEnumType.FIRE);
+            Debug.Log("fire");
         }
 
         private void AddHitSoundComponent(ref IEcsSystems systems, SoundsEnumType type)

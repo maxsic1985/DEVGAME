@@ -13,6 +13,7 @@ namespace MSuhininTestovoe.Devgame
                 .Add(new PlayerInitSystem())
                 .Add(new PlayerBuildSystem())
                 .Add(new PlayerInputSystem())
+                .Add(new PlayerRotateSystem())
                 .Add(new PlayerAtackSystem())
                 .Add(new PlayerMoveSystem());
 

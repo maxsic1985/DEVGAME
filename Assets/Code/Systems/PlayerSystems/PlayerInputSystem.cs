@@ -30,7 +30,8 @@ namespace MSuhininTestovoe.Devgame
                 ref PlayerInputComponent playerInputComponent = ref _playerInputComponentPool.Get(entity);
                 playerInputComponent.Horizontal = Input.GetAxis("Horizontal"); 
                 playerInputComponent.Vertical =Input.GetAxis("Vertical");
-                playerInputComponent.Fire = Input.GetAxis("Fire1");
+                playerInputComponent.Fire = Input.GetMouseButtonUp(0);
+                playerInputComponent.Rotate = Input.GetMouseButton(0);
             }
         }
     }
