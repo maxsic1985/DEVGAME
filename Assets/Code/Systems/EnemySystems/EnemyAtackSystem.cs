@@ -61,11 +61,7 @@ namespace MSuhininTestovoe.Devgame
                     _reachedToPlayer = false;
                     _isReachedComponentPool.Del(entity);
                 }
-
-                return;
             }
-            
-            _reachedToPlayer = false;
         }
 
         

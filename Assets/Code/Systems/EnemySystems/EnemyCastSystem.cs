@@ -49,6 +49,7 @@ namespace MSuhininTestovoe.Devgame
                     
                     
                     var reached = transform.Value.GetComponent<AIPath>();
+                    
                     ref AIPathComponent isReacheded = ref _isEnemyCanAtackComponenPool.Add(entity);
                     var target = player.transform;
                     aiDestinationSetter.target = target;
@@ -61,7 +62,7 @@ namespace MSuhininTestovoe.Devgame
                     
                     
                     
-                    _enemyIsFollowComponentPool.Add(entity);
+                   _enemyIsFollowComponentPool.Add(entity);
                     Debug.Log(hit.collider.gameObject);
                 }
             }
