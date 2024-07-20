@@ -11,7 +11,6 @@ namespace MSuhininTestovoe.Devgame
         private EcsWorld _world;
         private EcsFilter _filterEnemy;
         private EcsPool<IsEnemyFollowingComponent> _enemyIsFollowComponentPool;
-        private EcsPool<IsPlayerCanAttackComponent> _isPlayerCanAtackComponenPool;
         private EcsPool<TransformComponent> _transformComponent;
         private EcsPool<AIPathComponent> _isEnemyCanAtackComponenPool;
         private EcsPool<HealthViewComponent> _enemyHealthViewComponentPool;
@@ -26,8 +25,7 @@ namespace MSuhininTestovoe.Devgame
                 .Inc<TransformComponent>()
                 .Exc<IsEnemyFollowingComponent>()
                 .End();
-
-
+            
             _enemyIsFollowComponentPool = _world.GetPool<IsEnemyFollowingComponent>();
             _isEnemyCanAtackComponenPool = _world.GetPool<AIPathComponent>();
             _enemyHealthViewComponentPool = _world.GetPool<HealthViewComponent>();
@@ -59,11 +57,9 @@ namespace MSuhininTestovoe.Devgame
                     Extensions.AddPool<HealthViewComponent>(ecsSystems, entity);
                     ref HealthViewComponent enemyHealthView = ref _enemyHealthViewComponentPool.Get(entity);
                     enemyHealthView.Value = transform.Value.GetComponent<EnemyActor>().GetComponent<HealthView>().Value;
-                    
-                    
-                    
-                   _enemyIsFollowComponentPool.Add(entity);
-                    Debug.Log(hit.collider.gameObject);
+
+              
+                    _enemyIsFollowComponentPool.Add(entity);
                 }
             }
         }

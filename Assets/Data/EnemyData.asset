@@ -17,7 +17,7 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  CountForInstantiate: 1
+  CountForInstantiate: 3
   Lives: 3
   StartPositions:
   - {x: 1, y: 0, z: 0}

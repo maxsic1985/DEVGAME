@@ -36,7 +36,6 @@ namespace MSuhininTestovoe.Devgame
             _enemyHealthComponentPool = world.GetPool<EnemyHealthComponent>();
             _isCanAttackComponentPool = world.GetPool<IsPlayerCanAttackComponent>();
             _playerInputComponentPool = world.GetPool<PlayerInputComponent>();
-
             _systems = systems;
         }
 

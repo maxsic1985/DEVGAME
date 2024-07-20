@@ -14,6 +14,7 @@ namespace MSuhininTestovoe.Devgame
                 .Add(new PlayerBuildSystem())
                 .Add(new PlayerInputSystem())
                 .Add(new PlayerRotateSystem())
+                .Add(new PlayerRayCastSystem())
                 .Add(new PlayerAtackSystem())
                 .Add(new PlayerMoveSystem());
 
