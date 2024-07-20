@@ -11,6 +11,7 @@ namespace MSuhininTestovoe.Devgame
         private EcsFilter _enemyFilter;
         private EcsWorld _world;
         private EcsPool<EnemyHealthComponent> _enemyHealthComponentPool;
+        private EcsPool<HealthViewComponent> _healthView;
         private EcsPool<TransformComponent> _transformComponentPool;
         private EcsPool<IsDropInstantiateFlag> _isDropComponentPool;
         private EcsPool<DropAssetComponent> _dropAssetComponentPool;
@@ -31,6 +32,7 @@ namespace MSuhininTestovoe.Devgame
             
             _poolService = Service<IPoolService>.Get();
             _enemyHealthComponentPool = _world.GetPool<EnemyHealthComponent>();
+            _healthView = _world.GetPool<HealthViewComponent>();
             _transformComponentPool = _world.GetPool<TransformComponent>();
             _isDropComponentPool = _world.GetPool<IsDropInstantiateFlag>();
             _dropAssetComponentPool = _world.GetPool<DropAssetComponent>();
@@ -53,6 +55,9 @@ namespace MSuhininTestovoe.Devgame
                     
                     _deathEnemyCnt += 1;
                     _enemyCntlabel.text = _deathEnemyCnt.ToString();
+                    
+                    _healthView.Del(entity);
+                    
                 }
             }
         }

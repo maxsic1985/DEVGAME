@@ -48,6 +48,8 @@ namespace MSuhininTestovoe.Devgame
                 {
                     ref HealthViewComponent healthView = ref _enemyHealthViewComponentPool.Get(enemyEntity);
                     ref EnemyHealthComponent healthValue = ref _enemyHealthComponentPool.Get(enemyEntity);
+                    if(healthView.Value==null) return;
+                    
                     var currentHealh = healthValue.HealthValue;
 
                     healthView.Value.size = new Vector2(currentHealh, 1);

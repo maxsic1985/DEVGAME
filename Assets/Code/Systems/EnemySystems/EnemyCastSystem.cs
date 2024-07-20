@@ -54,9 +54,9 @@ namespace MSuhininTestovoe.Devgame
                     isReacheded.AIPath = reached;
                     reached.endReachedDistance = 0.5f;
 
-                    Extensions.AddPool<HealthViewComponent>(ecsSystems, entity);
+                    /*Extensions.AddPool<HealthViewComponent>(ecsSystems, entity);
                     ref HealthViewComponent enemyHealthView = ref _enemyHealthViewComponentPool.Get(entity);
-                    enemyHealthView.Value = transform.Value.GetComponent<EnemyActor>().GetComponent<HealthView>().Value;
+                    enemyHealthView.Value = transform.Value.GetComponent<EnemyActor>().GetComponent<HealthView>().Value;*/
 
               
                     _enemyIsFollowComponentPool.Add(entity);
