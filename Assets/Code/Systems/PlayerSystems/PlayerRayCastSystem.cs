@@ -32,12 +32,13 @@ namespace MSuhininTestovoe.Devgame
             foreach (var entity in _filter)
             {
                 ref TransformComponent transformComponent = ref _transformComponentPool.Get(entity);
-                LayerMask mask = LayerMask.GetMask("Enemy");
+                LayerMask mask = LayerMask.GetMask(GameConstants.ENEMY_LAYER);
                 RaycastHit2D hit = Physics2D.Raycast(
                     transformComponent.Value.position,
                     transformComponent.Value.right,
                     5f,
                     mask);
+                
                 if (hit)
                 {
                     if (_isCanAttackComponentPool.Has(entity) == false)
@@ -54,9 +55,6 @@ namespace MSuhininTestovoe.Devgame
                 }
                 else
                 {
-                  //  if (_enemyHealthViewComponentPool.Has(hit.collider.GetComponent<EnemyActor>().Entity))
-                    //    _enemyHealthViewComponentPool.Del(hit.collider.GetComponent<EnemyActor>().Entity);
-                    
                     if (_isCanAttackComponentPool.Has(entity))
                         _isCanAttackComponentPool.Del(entity);
                 }

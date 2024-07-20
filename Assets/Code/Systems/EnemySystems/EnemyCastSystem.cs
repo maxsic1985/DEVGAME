@@ -36,7 +36,7 @@ namespace MSuhininTestovoe.Devgame
         {
             foreach (var entity in _filterEnemy)
             {   
-                LayerMask mask = LayerMask.GetMask("Player");
+                LayerMask mask = LayerMask.GetMask(GameConstants.PLAYER_LAYER);
                 ref TransformComponent transform = ref _transformComponent.Get(entity);
                 var aiDestinationSetter = transform.Value.GetComponent<AIDestinationSetter>();
                 RaycastHit2D hit = Physics2D.CircleCast(transform.Value.position, 3f, transform.Value.forward,0f,mask);
@@ -53,12 +53,7 @@ namespace MSuhininTestovoe.Devgame
                     aiDestinationSetter.target = target;
                     isReacheded.AIPath = reached;
                     reached.endReachedDistance = 0.5f;
-
-                    /*Extensions.AddPool<HealthViewComponent>(ecsSystems, entity);
-                    ref HealthViewComponent enemyHealthView = ref _enemyHealthViewComponentPool.Get(entity);
-                    enemyHealthView.Value = transform.Value.GetComponent<EnemyActor>().GetComponent<HealthView>().Value;*/
-
-              
+                    
                     _enemyIsFollowComponentPool.Add(entity);
                 }
             }

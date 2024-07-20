@@ -79,7 +79,6 @@ namespace MSuhininTestovoe.Devgame
                 ref EnemySpawnComponent spawn = ref _enemySpawnComponentPool.Add(newEntity);
                 ref TransformComponent transformComponent = ref _transformComponentPool.Add(newEntity);
                 ref EnemyHealthComponent enemyHealth = ref _enemyHealthComponentPool.Add(newEntity);
-               // ref HealthViewComponent view = ref _enemyHealthViewComponentPool.Add(newEntity);
                 ref BoxColliderComponent enemyBoxColliderComponent = ref _enemyBoxColliderComponentPool.Add(newEntity);
                 ref EnemyStartPositionComponent enemyStartPositionComponent =
                     ref _enemyStartPositionComponentPool.Add(newEntity);
@@ -91,12 +90,8 @@ namespace MSuhininTestovoe.Devgame
                 spawn.SpawnLenght = dataInit.CountForInstantiate;
                 transformComponent.Value = pooled.gameObject.GetComponent<TransformView>().Transform;
                 enemyHealth.HealthValue = dataInit.Lives;
-               // view.Value = pooled.GetComponent<HealthView>().Value;
                 pooled.GetComponent<HealthView>().Value.size = new Vector2(enemyHealth.HealthValue, 1);
-               
                 
-                
-            
                 enemyBoxColliderComponent.ColliderValue = pooled.GetComponent<BoxCollider>();
                 enemyStartPositionComponent.Value = new List<Vector3>();
                 enemyStartRotationComponent.Value = new List<Vector3>();
@@ -139,8 +134,6 @@ namespace MSuhininTestovoe.Devgame
 
                 pooled.transform.position = enemyStartPositionComponent.Value[positionIndex[i]];
                 pooled.transform.rotation = Quaternion.EulerAngles(enemyStartRotationComponent.Value[positionIndex[i]]);
-                
-             
             }
         }
     }
