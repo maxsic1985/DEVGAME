@@ -12,6 +12,7 @@ namespace MSuhininTestovoe.Devgame
                 .Add(new EnemyLoadSystem())
                 .Add(new EnemyInitSystem())
                 .Add(new EnemyAtackSystem())
+                .Add(new EnemyCastSystem())
                 .Add(new EnemyDeathSystem());
 
         }

@@ -44,8 +44,8 @@ namespace MSuhininTestovoe.Devgame
             var poolEnter = _world.GetPool<OnTriggerEnter2DEvent>();
             var poolExit = _world.GetPool<OnTriggerExit2DEvent>();
 
-            EnemyEnterToTrigger(ecsSystems, poolEnter);
-            EmnemyExitFromTRigger(poolExit);
+      //      EnemyEnterToTrigger(ecsSystems, poolEnter);
+      //      EmnemyExitFromTRigger(poolExit);
             DropEnterToTrigger(ecsSystems, poolEnter);
         }
     }

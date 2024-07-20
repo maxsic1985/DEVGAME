@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6427243944208205673}
   - component: {fileID: 3703845066782937095}
   - component: {fileID: 383575429067499082}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 466218815209602945}
   - component: {fileID: 466218815209602944}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u0413\u043E\u043B\u043E\u0432\u0430 0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1167029515621682756}
   - component: {fileID: 7218687722328447595}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
