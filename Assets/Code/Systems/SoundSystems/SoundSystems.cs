@@ -9,7 +9,7 @@ namespace MSuhininTestovoe.Devgame
         public SoundSystems(EcsSystems systems)
         {
             systems
-                .Add(new SoundSystem())
+                .Add(new SoundLoadSystem())
                 .Add(new SoundInitSystem())
                 .Add(new SoundCatchSystem())
                 .Add(new SoundMusicSwitchSystem())

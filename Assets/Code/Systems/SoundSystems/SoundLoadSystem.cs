@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MSuhininTestovoe.Devgame
 {
-    public class SoundSystem: IEcsInitSystem
+    public class SoundLoadSystem: IEcsInitSystem
     {
 
 
