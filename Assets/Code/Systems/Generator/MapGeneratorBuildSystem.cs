@@ -28,21 +28,21 @@ namespace MSuhininTestovoe.Devgame
                 ref var prefabComponent = ref _prefabPool.Get(entity);
                 ref var mapGenerator = ref _mapGeneratorComponentPool.Get(entity);
                
-                for (int i = 0; i <= mapGenerator.Height; i++)
+                for (int i = 0; i <= mapGenerator.Weight; i++)
                 {
-                    for (int j = 0; j <= mapGenerator.Weight; j++)
+                    for (int j = 0; j <= mapGenerator.Height; j++)
                     {
-                        if (i==0 || i==mapGenerator.Height)
+                        if (i==0 || i==mapGenerator.Weight)
                         {
                             var gameObject = Object.Instantiate(prefabComponent.Value);
-                            gameObject.transform.position = new Vector3(mapGenerator.Weight / 2 - j,
-                                mapGenerator.Height/2-i , 0);
+                            gameObject.transform.position = new Vector3(mapGenerator.Height / 2 - j,
+                                mapGenerator.Weight/2-i , 0);
                         }
-                      else  if (j==0 || j==mapGenerator.Weight)
+                      else  if (j==0 || j==mapGenerator.Height)
                         {
                             var gameObject = Object.Instantiate(prefabComponent.Value);
-                            gameObject.transform.position = new Vector3(mapGenerator.Weight / 2 - j,
-                                mapGenerator.Height/2-i , 0);
+                            gameObject.transform.position = new Vector3(mapGenerator.Height / 2 - j,
+                                mapGenerator.Weight/2-i , 0);
                         }
                     }
                 }
