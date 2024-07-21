@@ -26,6 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2371283592776953290}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.71, z: 0}
   m_LocalScale: {x: 1.5, y: 1.3, z: 1}
@@ -35,7 +36,6 @@ Transform:
   - {fileID: 2371283593830625919}
   - {fileID: 2371283594049505155}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &2371283592776953291
 Grid:
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAYIexWha/MWwIAABUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtz2jAQ/iuMzk3HhjBtemsdQnpIYEIzufgipDXWIEsePXgO/70r2cYOnZ5Yvv1299uHfCZC2RqY02ZuBH/RHMiPEQk2+TLqnc9woButVuIEHedDcFcGEo2cN+qERjwNYVZX4IxgP9VGBnKCoFei0Kaa8Q1k2jqLcEGlBXQZ7UK0Qug8Igf8uXsIIUe0xt+CdULrIRld0GSgHJie2hE7WsPyikla1cCD5J487djpNNIUNtMykq/jaUivpRS2FUPcsY7NZrS2HltBAhcUm4sKQq8liE3pgtBh8KIoLLhWlaHHR2FwRk1W8ks3g6uo3TbSdlT6UGeajqOsJunLP/67NLoLo6vnrm6ahBquFGz7Ro+MWjeY7BB+/Czcqz2VW7qW8FGCetVzo73i6HTGh1BvYfzY/722lpXAtj3eSL0Bff3//YQeLrH7QyZFtY6jv2+AldRx3nH7YHA5v1FwvA3bpkA0qHi38IduhkfUOp6EsQ5dbZcqyFtrbwKVzOLMQjfeZdooiHArugZFpTsuMY27XeGNb1D2xvNEw3Npi7e+7hXchES45yfJjWup99dl2VLvX8CWC++kUNCLDo5XnFOmlWoubDiTLmzlTUHZIGzjBf98WmSSppzyYsrZZAzs++QuXSd8un7g95QW9yydkHh7QmGfVC4boe14cGuqT67wzrqvyGhuaB2vnRu6n4tTpQcjF6rQK2YA1KLJcBUOBovgw+QzLnBAK3BOqLhvcs6J1GwLPL8mymOns4MzNO+z5KQWO+0CkpMsfjZyEuDrLS8N7ATsQ/Eu2YVc/gJQSwMEFAAACAgAABgh7Ml8gVltAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKxoWFKYkqaaUqysVFqsoWxrmGSQYppkmWKSWJimkmyobFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAABgh7FaFr8xbAgAAFQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABgh7Ml8gVltAAAAeAAAAAkAJAAAAAAAAAAAAAAAqAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABgAwAAAAA=
+    dataString: UEsDBBQAAAgIAAAYIez4m/MvWQIAABMFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk3H5mNaemsNIT2QMKGZXLgIaY01yJJHH3yE4b93JdvYodMT4r23u29XK1+IULYC5rRZGMGXmgP5MSDhTL4MOvIJTnSn1Vp8QKt5F9wVQUSj5pU6oRFPQ5jVJTgj2E+1k0GcIOiVyLUp53wHmbbOIpxTaQEpo12IVghdBuSEPw/TEHLG0/BbOH3gaZoMrnhkoByYTtoKW1mt8opJWlbAg+VOPGnV6STKFDbTKJKvw0lIr6UUtjFD3LmKzWa0sh5bQQEXFJuLDkKvBYhd4YLRfvBLnltwjStDzzNhcEZ1VvJL14Mrqd3X1g5U+lBnkg6jrTrp8h/+IY10bnT51NZNk1DDFYLtX+mZUet6k+3Ds8/GvTpSuadbCe8FqGe9MNorjqQzPoR6C8NZ9/fWWlYA23d4bfUO9NX/7yf0cI3dnzIpym0c/bgG1lLHecfbB4OX8xsNx92wTQpEg4s3C3/orr9EDfEojHVINV2qYG+rvQlSMo8zC914l2mjIMKN6QoUle68wjTu/grvuF7ZO+aRhufSFG+49hXchUS40yfJHbXSx9tl2UIfl2CLF++kUNCZDsQzzinTStUbZj+TIWrtTU5ZL2rnBf+8WWSUppzyfMLZaAjs++gh3SZ8sp3yMaX5mKUjEldPKGyTylXts5kOXprqkitcs/YjMlgYWsVl54YeF+Kj1D1/QuV6zQyAeqkztBOyYLAIvks+5wLnswbnhIrXTS4bIjXbA9/cEm1ip/OTM7QPVuKgXQA2JIsfjQ0J8G2TVwYOAo6hdht2Jde/UEsDBBQAAAgIAAAYIezJfIFZbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSsaFhSmJKmmlKsrFRarKFsa5hkkGKaZJlikliYppJsqGxUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAYIez4m/MvWQIAABMFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAYIezJfIFZbQAAAHgAAAAJACQAAAAAAAAAAAAAAKYCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAXgMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -174,13 +174,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2371283593538598185}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2371283592776953288}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &2371283593538598188
 Tilemap:
@@ -34767,6 +34767,8 @@ TilemapRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -34836,13 +34838,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2371283593830625918}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2371283592776953288}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &2371283593830625917
 Tilemap:
@@ -35335,6 +35337,8 @@ TilemapRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -35395,13 +35399,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2371283594049505154}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2371283592776953288}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &2371283594049505156
 Tilemap:
@@ -38648,6 +38652,8 @@ TilemapRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -38697,6 +38703,12 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -38709,14 +38721,36 @@ TilemapCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2371283594049505154}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_CompositeOperation: 1
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+  m_UseDelaunayMesh: 0
 --- !u!66 &2371283594049505152
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -38725,11 +38759,32 @@ CompositeCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2371283594049505154}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
   m_GenerationType: 0
@@ -39219,3 +39274,5 @@ CompositeCollider2D:
       - {x: -3.3599749, y: -3.3280098}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 2371283594049505154}
