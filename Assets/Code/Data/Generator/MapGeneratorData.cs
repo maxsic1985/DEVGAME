@@ -14,6 +14,8 @@ namespace MSuhininTestovoe.Devgame
         [Header("Preference:")]
         public int Height;
         public int Weight;
+
+        public MapTrapGeneratorData Traps;
     }
 }
 

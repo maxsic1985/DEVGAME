@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
   m_DefaultGroup: d18cb71a5c2c941239f2a39a899f9808
-  m_CachedHash:
+  m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: 7e95f6c19d3141c1c862b7d4e2f592b9
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -32,11 +32,14 @@ MonoBehaviour:
   m_ShaderBundleNaming: 0
   m_ShaderBundleCustomNaming: 
   m_MonoScriptBundleNaming: 0
+  m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
     m_Id: 
   m_RemoteCatalogLoadPath:
     m_Id: 
+  m_ContentStateBuildPathProfileVariableName: 
+  m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: 
@@ -49,6 +52,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e2a8a9de490584de1b7276d54a2293ae, type: 2}
   - {fileID: 11400000, guid: 2b3c195028aaf47ff89d94b6ddd756fe, type: 2}
   - {fileID: 11400000, guid: 327346b6cd17f76429e51c3b20542835, type: 2}
+  - {fileID: 11400000, guid: 22f880b970786e341906992ff8c56310, type: 2}
+  - {fileID: 11400000, guid: 788c427ab56a9114db6437fb18611730, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -67,9 +72,9 @@ MonoBehaviour:
       - m_Id: 2e676e5568be747eca61bf1077f53fcd
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: acc4e90c682e24d2b91dfc3808f798f8
-        m_Value: ServerData/[BuildTarget]
+        m_Value: 'ServerData/[BuildTarget]'
       - m_Id: 3cff3b1813bfd475ca74c618ed6b5d43
-        m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+        m_Value: 'http://[PrivateIpAddress]:[HostingServicePort]'
     m_ProfileEntryNames:
     - m_Id: 17d232119284742d68079241b2e2ef74
       m_Name: BuildTarget
@@ -110,3 +115,4 @@ MonoBehaviour:
     m_Settings: {fileID: 11400000}
     m_NextInstanceId: 0
     m_RegisteredServiceTypeRefs: []
+    m_PingTimeoutInMilliseconds: 5000

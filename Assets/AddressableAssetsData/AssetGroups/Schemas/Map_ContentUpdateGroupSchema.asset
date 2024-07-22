@@ -9,14 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1e06a1a8b1847778e87b53f7e521215, type: 3}
-  m_Name: MapGeneratorData
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: Map_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  Unit:
-    m_AssetGUID: 3a58c3c6e1e722c4c95c6bbda9e4322c
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  Height: 40
-  Weight: 30
-  Traps: {fileID: 0}
+  m_Group: {fileID: 11400000, guid: 22f880b970786e341906992ff8c56310, type: 2}
+  m_StaticContent: 0
