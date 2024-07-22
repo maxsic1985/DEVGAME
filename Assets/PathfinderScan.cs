@@ -1,14 +1,13 @@
+using System;
 using Pathfinding;
 using UnityEngine;
 
+
 public  class PathfinderScan : MonoBehaviour
 {
-    void Start()
+  public  void Initialise()
     {
         var pathfinder = GetComponentInParent<AstarPath>();
         pathfinder.Scan();
     }
-
-
-
 }

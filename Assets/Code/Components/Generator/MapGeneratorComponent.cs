@@ -8,5 +8,7 @@ namespace MSuhininTestovoe.Devgame
     {
         public int Height;
         public int Weight;
+
+        public PathfinderScan PathfinderScan;
     }
 }

@@ -2,6 +2,7 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.Unity.Ugui;
 using LeoEcsPhysics;
+using Pathfinding;
 using UnityEngine;
 
 
@@ -11,12 +12,12 @@ namespace MSuhininTestovoe.Devgame
     {
         private EcsSystems _systems;
         private bool _hasInitCompleted;
-        [SerializeField] EcsUguiEmitter uguiEmitter;
-        [SerializeField] AttackInputView _attackView;
-
+        [SerializeField] private EcsUguiEmitter uguiEmitter;
+        [SerializeField] private PathfinderScan AI;
+        
+        
         private async void Start()
         {
-            //
             SharedData shared = new();
             await shared.Init();
             
@@ -37,8 +38,8 @@ namespace MSuhininTestovoe.Devgame
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem(WorldsNamesConstants.EVENTS))
 #endif
-                .Inject(_attackView, WorldsNamesConstants.EVENTS)
                 .InjectUgui(uguiEmitter, WorldsNamesConstants.EVENTS)
+                .Inject(AI,WorldsNamesConstants.EVENTS)
                 .Init();
 
             _hasInitCompleted = true;

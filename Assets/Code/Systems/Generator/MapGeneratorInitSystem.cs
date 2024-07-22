@@ -1,5 +1,6 @@
 ﻿using Leopotam.EcsLite;
-using UnityEngine;
+using Leopotam.EcsLite.Di;
+
 
 namespace MSuhininTestovoe.Devgame
 {
@@ -12,7 +13,7 @@ namespace MSuhininTestovoe.Devgame
         private EcsPool<ScriptableObjectComponent> _scriptableObjectPool;
         private EcsPool<LoadPrefabComponent> _loadPrefabPool;
         private EcsPool<MapGeneratorComponent> _mapGeneratorComponentPool;
-       
+        private readonly  EcsCustomInject<PathfinderScan> _scan=default;
 
 
         public void Init(IEcsSystems systems)
@@ -37,6 +38,7 @@ namespace MSuhininTestovoe.Devgame
                     loadPrefabFromPool.Value = dataInit.Unit;
                     mapGeneratorComponent.Height = dataInit.Height;
                     mapGeneratorComponent.Weight = dataInit.Weight;
+                    mapGeneratorComponent.PathfinderScan = _scan.Value;
                 }
                 _scriptableObjectPool.Del(entity);
             }
