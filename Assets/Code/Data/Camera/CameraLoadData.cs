@@ -12,6 +12,7 @@ namespace MSuhininTestovoe.Devgame
         [Header("Prefabs:")] public AssetReferenceGameObject Camera;
         [Header("Positions:")] public Vector3 StartPosition;
         [Header("Rotations:")] public Vector3 StartRotation;
+        [Header("Ortographic Size:")] public float Size;
         [Range(0f, 1f)] public float CameraSmoothness;  
     }
 }

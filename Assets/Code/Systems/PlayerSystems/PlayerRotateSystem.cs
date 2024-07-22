@@ -26,7 +26,7 @@ namespace MSuhininTestovoe.Devgame
                 .Inc<PlayerInputComponent>()
                 .Inc<TransformComponent>()
                 .End();
-            _cameraFilter = world.Filter<IsCameraComponent>().End();
+            _cameraFilter = world.Filter<CameraComponent>().End();
             
             _playerInputComponentPool = world.GetPool<PlayerInputComponent>();
             _transformComponentPool = world.GetPool<TransformComponent>();

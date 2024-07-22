@@ -2,7 +2,9 @@
 
 namespace MSuhininTestovoe.Devgame
 {
-    public struct CameraStartPositionComponent
+
+
+    public struct CameraRotationComponent
     {
         public Vector3 Value;
     }

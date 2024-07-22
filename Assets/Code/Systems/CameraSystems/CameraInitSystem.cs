@@ -9,19 +9,19 @@ namespace MSuhininTestovoe.Devgame
         private EcsWorld _world;
         private EcsPool<ScriptableObjectComponent> _scriptableObjectPool;
         private EcsPool<LoadPrefabComponent> _loadPrefabPool;
-        private EcsPool<CameraStartPositionComponent> _cameraStartPositionComponentPool;
-        private EcsPool<CameraStartRotationComponent> _cameraStartRotationComponentPool;
-        private EcsPool<IsCameraComponent> _isCameraComponentPool;
+        private EcsPool<CameraPositionComponent> _cameraStartPositionComponentPool;
+        private EcsPool<CameraRotationComponent> _cameraStartRotationComponentPool;
+        private EcsPool<CameraComponent> _isCameraComponentPool;
 
         public void Init(IEcsSystems systems)
         {
             _world = systems.GetWorld();
-            _filter = _world.Filter<IsCameraComponent>().Inc<ScriptableObjectComponent>().End();
+            _filter = _world.Filter<CameraComponent>().Inc<ScriptableObjectComponent>().End();
             _scriptableObjectPool = _world.GetPool<ScriptableObjectComponent>();
             _loadPrefabPool = _world.GetPool<LoadPrefabComponent>();
-            _cameraStartPositionComponentPool = _world.GetPool<CameraStartPositionComponent>();
-            _cameraStartRotationComponentPool = _world.GetPool<CameraStartRotationComponent>();
-            _isCameraComponentPool = _world.GetPool<IsCameraComponent>();
+            _cameraStartPositionComponentPool = _world.GetPool<CameraPositionComponent>();
+            _cameraStartRotationComponentPool = _world.GetPool<CameraRotationComponent>();
+            _isCameraComponentPool = _world.GetPool<CameraComponent>();
         }
 
         public void Run(IEcsSystems systems)
@@ -33,18 +33,19 @@ namespace MSuhininTestovoe.Devgame
                     ref LoadPrefabComponent loadPrefabFromPool = ref _loadPrefabPool.Add(entity);
                     loadPrefabFromPool.Value = dataInit.Camera;
 
-                    ref CameraStartPositionComponent cameraStartPositionComponent =
+                    ref CameraPositionComponent cameraPositionComponent =
                         ref _cameraStartPositionComponentPool.Add(entity);
-                    cameraStartPositionComponent.Value = dataInit.StartPosition;
+                    cameraPositionComponent.Value = dataInit.StartPosition;
 
-                    ref CameraStartRotationComponent cameraStartRotationComponent =
+                    ref CameraRotationComponent cameraRotationComponent =
                         ref _cameraStartRotationComponentPool.Add(entity);
-                    cameraStartRotationComponent.Value = dataInit.StartRotation;
+                    cameraRotationComponent.Value = dataInit.StartRotation;
 
-                    ref IsCameraComponent isCameraComponent = ref _isCameraComponentPool.Get(entity);
-                    isCameraComponent.CameraSmoothness = dataInit.CameraSmoothness;
-                    isCameraComponent.Offset = dataInit.StartPosition;
-                    isCameraComponent.CurrentVelocity = Vector3.zero;
+                    ref CameraComponent cameraComponent = ref _isCameraComponentPool.Get(entity);
+                    cameraComponent.CameraSmoothness = dataInit.CameraSmoothness;
+                    cameraComponent.Size = dataInit.Size;
+                    cameraComponent.Offset = dataInit.StartPosition;
+                    cameraComponent.CurrentVelocity = Vector3.zero;
                 }
 
                 _scriptableObjectPool.Del(entity);

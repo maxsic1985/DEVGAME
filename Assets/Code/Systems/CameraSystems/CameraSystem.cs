@@ -4,14 +4,14 @@ namespace MSuhininTestovoe.Devgame
 {
     public class CameraSystem: IEcsInitSystem
     {
-        private EcsPool<IsCameraComponent> _isCameraPool;
+        private EcsPool<CameraComponent> _isCameraPool;
 
         public void Init(IEcsSystems systems)
         {
             var world = systems.GetWorld();
             var entity = world.NewEntity();
             
-            _isCameraPool = world.GetPool<IsCameraComponent>();
+            _isCameraPool = world.GetPool<CameraComponent>();
             _isCameraPool.Add(entity);
 
             var loadDataByNameComponent = world.GetPool<LoadDataByNameComponent>();

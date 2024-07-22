@@ -10,17 +10,19 @@ namespace MSuhininTestovoe.Devgame
         private EcsFilter _filter;
         private EcsPool<PrefabComponent> _prefabPool;
         private EcsPool<TransformComponent> _transformComponentPool;
-        private EcsPool<CameraStartPositionComponent> _cameraStartPositionComponentPool;
-        private EcsPool<CameraStartRotationComponent> _cameraStartRotationComponentPool;
+        private EcsPool<CameraPositionComponent> _cameraStartPositionComponentPool;
+        private EcsPool<CameraRotationComponent> _cameraStartRotationComponentPool;
+        private EcsPool<CameraComponent> _cameraComponent;
 
         public void Init(IEcsSystems systems)
         {
             EcsWorld world = systems.GetWorld();
-            _filter = world.Filter<IsCameraComponent>().Inc<PrefabComponent>().End();
+            _filter = world.Filter<CameraComponent>().Inc<PrefabComponent>().End();
             _prefabPool = world.GetPool<PrefabComponent>();
             _transformComponentPool = world.GetPool<TransformComponent>();
-            _cameraStartPositionComponentPool = world.GetPool<CameraStartPositionComponent>();
-            _cameraStartRotationComponentPool = world.GetPool<CameraStartRotationComponent>();
+            _cameraStartPositionComponentPool = world.GetPool<CameraPositionComponent>();
+            _cameraStartRotationComponentPool = world.GetPool<CameraRotationComponent>();
+            _cameraComponent = world.GetPool<CameraComponent>();
         }
 
         public void Run(IEcsSystems systems)
@@ -29,13 +31,16 @@ namespace MSuhininTestovoe.Devgame
             {
                 ref PrefabComponent prefabComponent = ref _prefabPool.Get(entity);
                 ref TransformComponent transformComponent = ref _transformComponentPool.Add(entity);
-                ref CameraStartPositionComponent cameraPosition = ref _cameraStartPositionComponentPool.Get(entity);
-                ref CameraStartRotationComponent cameraRotation = ref _cameraStartRotationComponentPool.Get(entity);
+                ref CameraPositionComponent cameraPosition = ref _cameraStartPositionComponentPool.Get(entity);
+                ref CameraRotationComponent cameraRotation = ref _cameraStartRotationComponentPool.Get(entity);
+                ref CameraComponent cameraComponent = ref _cameraComponent.Get(entity);
 
-                GameObject gameObject = Object.Instantiate(prefabComponent.Value);
-                transformComponent.Value =  gameObject.GetComponent<TransformView>().Transform;
-                gameObject.transform.position = cameraPosition.Value;
-                gameObject.transform.eulerAngles = cameraRotation.Value;
+                GameObject cameraObject = Object.Instantiate(prefabComponent.Value);
+                transformComponent.Value =  cameraObject.GetComponent<TransformView>().Transform;
+                cameraObject.transform.position = cameraPosition.Value;
+                cameraObject.transform.eulerAngles = cameraRotation.Value;
+               var camera= cameraObject.GetComponent<Camera>();
+               camera.orthographicSize = cameraComponent.Size;
                _prefabPool.Del(entity);
             }
         }
