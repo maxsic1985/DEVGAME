@@ -11,7 +11,7 @@ namespace MSuhininTestovoe.Devgame
         private EcsPool<PrefabComponent> _prefabPool;
         private EcsPool<TransformComponent> _transformComponentPool;
         private EcsPool<MapGeneratorComponent> _mapGeneratorComponentPool;
-        
+
 
         public void Init(IEcsSystems systems)
         {
@@ -20,7 +20,6 @@ namespace MSuhininTestovoe.Devgame
             _prefabPool = world.GetPool<PrefabComponent>();
             _transformComponentPool = world.GetPool<TransformComponent>();
             _mapGeneratorComponentPool = world.GetPool<MapGeneratorComponent>();
-            
         }
 
         public void Run(IEcsSystems systems)
@@ -31,13 +30,13 @@ namespace MSuhininTestovoe.Devgame
                 ref var mapGenerator = ref _mapGeneratorComponentPool.Get(entity);
 
                 CreateBorder(mapGenerator, prefabComponent);
-               mapGenerator.PathfinderScan.Initialise();
-              
+                mapGenerator.PathfinderScan.Initialise();
+
                 _prefabPool.Del(entity);
             }
         }
 
-        private  void CreateBorder(MapGeneratorComponent mapGenerator, PrefabComponent prefabComponent)
+        private void CreateBorder(MapGeneratorComponent mapGenerator, PrefabComponent prefabComponent)
         {
             for (int i = 0; i <= mapGenerator.Weight; i++)
             {
@@ -48,12 +47,14 @@ namespace MSuhininTestovoe.Devgame
                         var gameObject = Object.Instantiate(prefabComponent.Value);
                         gameObject.transform.position = new Vector3(mapGenerator.Height / 2 - j,
                             mapGenerator.Weight / 2 - i, 0);
+                        gameObject.transform.parent = mapGenerator.PathfinderScan.gameObject.transform;
                     }
                     else if (j == 0 || j == mapGenerator.Height)
                     {
                         var gameObject = Object.Instantiate(prefabComponent.Value);
                         gameObject.transform.position = new Vector3(mapGenerator.Height / 2 - j,
                             mapGenerator.Weight / 2 - i, 0);
+                        gameObject.transform.parent = mapGenerator.PathfinderScan.gameObject.transform;
                     }
                 }
             }

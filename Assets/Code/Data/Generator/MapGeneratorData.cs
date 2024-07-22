@@ -10,7 +10,7 @@ namespace MSuhininTestovoe.Devgame
     {
         [Header("Prefabs:")]
         public AssetReferenceGameObject Unit;
-
+        
         [Header("Preference:")]
         public int Height;
         public int Weight;
