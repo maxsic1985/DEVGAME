@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MapTrapGeneratorData
   m_EditorClassIdentifier: 
   DeathTrap:
-    m_AssetGUID: 
+    m_AssetGUID: 615372d00f6f4814d9282e8dbf775cb1
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

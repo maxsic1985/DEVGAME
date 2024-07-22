@@ -4,9 +4,9 @@ using UnityEngine.AddressableAssets;
 
 namespace MSuhininTestovoe.Devgame
 {
-    [CreateAssetMenu(fileName = nameof(MapTrapGeneratorData),
-        menuName = EditorMenuConstants.CREATE_DATA_MENU_NAME + nameof(MapTrapGeneratorData))]
-    public class MapTrapGeneratorData : ScriptableObject
+    [CreateAssetMenu(fileName = nameof(TrapGeneratorData),
+        menuName = EditorMenuConstants.CREATE_DATA_MENU_NAME + nameof(TrapGeneratorData))]
+    public class TrapGeneratorData : ScriptableObject
     {
         [Header("Prefabs:")]
         public AssetReferenceGameObject DeathTrap;

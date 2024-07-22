@@ -14,6 +14,7 @@ namespace MSuhininTestovoe.Devgame
 
             new CommonSystems(systems);
             new MapGeneratorSystems(systems);
+            new TrapGeneratorSystems(systems);
             new TriggerSystems(systems);
             new PlayerSystems(systems);
             new EnemySystems(systems);

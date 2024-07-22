@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: 5eed61eb4f7013648bc4767dc499272e
   m_SerializeEntries:
   - m_GUID: bf2e5211383de4146a7f93f3dc8e0055
-    m_Address: MapTrapGeneratorData
+    m_Address: TrapGeneratorData
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
