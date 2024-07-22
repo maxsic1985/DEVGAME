@@ -28,26 +28,31 @@ namespace MSuhininTestovoe.Devgame
                 ref var prefabComponent = ref _prefabPool.Get(entity);
                 ref var mapGenerator = ref _mapGeneratorComponentPool.Get(entity);
                
-                for (int i = 0; i <= mapGenerator.Weight; i++)
-                {
-                    for (int j = 0; j <= mapGenerator.Height; j++)
-                    {
-                        if (i==0 || i==mapGenerator.Weight)
-                        {
-                            var gameObject = Object.Instantiate(prefabComponent.Value);
-                            gameObject.transform.position = new Vector3(mapGenerator.Height / 2 - j,
-                                mapGenerator.Weight/2-i , 0);
-                        }
-                      else  if (j==0 || j==mapGenerator.Height)
-                        {
-                            var gameObject = Object.Instantiate(prefabComponent.Value);
-                            gameObject.transform.position = new Vector3(mapGenerator.Height / 2 - j,
-                                mapGenerator.Weight/2-i , 0);
-                        }
-                    }
-                }
+                CreateBorder(mapGenerator, prefabComponent);
                 
                 _prefabPool.Del(entity);
+            }
+        }
+
+        private static void CreateBorder(MapGeneratorComponent mapGenerator, PrefabComponent prefabComponent)
+        {
+            for (int i = 0; i <= mapGenerator.Weight; i++)
+            {
+                for (int j = 0; j <= mapGenerator.Height; j++)
+                {
+                    if (i == 0 || i == mapGenerator.Weight)
+                    {
+                        var gameObject = Object.Instantiate(prefabComponent.Value);
+                        gameObject.transform.position = new Vector3(mapGenerator.Height / 2 - j,
+                            mapGenerator.Weight / 2 - i, 0);
+                    }
+                    else if (j == 0 || j == mapGenerator.Height)
+                    {
+                        var gameObject = Object.Instantiate(prefabComponent.Value);
+                        gameObject.transform.position = new Vector3(mapGenerator.Height / 2 - j,
+                            mapGenerator.Weight / 2 - i, 0);
+                    }
+                }
             }
         }
     }
