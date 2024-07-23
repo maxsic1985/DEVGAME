@@ -7,8 +7,6 @@ namespace MSuhininTestovoe.Devgame
 {
     public partial class TriggerSystem
     {
-      
-
         private void TrapEnterToTrigger(IEcsSystems ecsSystems, EcsPool<OnTriggerEnter2DEvent> poolEnter)
         {
             foreach (var entity in _filterEnterToTrigger)
@@ -23,17 +21,17 @@ namespace MSuhininTestovoe.Devgame
                     var trapEntity = trapCollider.GetComponent<TrapActor>().Entity;
                     var playerEntity = player.GetComponent<PlayerActor>().Entity;
 
-                    _sharedData.GetPlayerCharacteristic.GetLives.UpdateLives(0);
 
-                    // if (item.DropType == drop.DropType)
-                    // {
-                    //     UpdateInventory(ref item, ref drop);
-                    //    
-                    //     Object.Destroy(dropCollider.gameObject);
-                    //     _world.DelEntity(trapEntity);
-                    //     poolEnter.Del(entity);
-                    //     return;
-                    // }
+                    if (trapCollider.GetComponent<TrapActor>().TrapType == TrapType.DEATH)
+                    {
+                        _sharedData.GetPlayerCharacteristic.GetLives.UpdateLives(0);
+                    }
+                    else if (trapCollider.GetComponent<TrapActor>().TrapType == TrapType.SLOW)
+                    {
+                        var speed = _sharedData.GetPlayerCharacteristic.Speed;
+                        var slowwSpeeed = (speed * 60) / 100;
+                        _sharedData.GetPlayerCharacteristic.SetSpeed(speed-slowwSpeeed);
+                    }
 
 
                     GameObject.Destroy(trapCollider.gameObject);

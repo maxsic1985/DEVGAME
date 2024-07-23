@@ -13,6 +13,7 @@ namespace MSuhininTestovoe.Devgame
         [SerializeField] private Sprite _icon;
 
         [SerializeField] private float _baseSpeed;
+        [SerializeField] private float _currentSpeed;
         [SerializeField] private float _baseRotateSpeed;
         [SerializeField] private int _baseScore;
         [SerializeField] private int _currentScore;
@@ -23,7 +24,7 @@ namespace MSuhininTestovoe.Devgame
 
         public PlayerLivesCharacteristic GetLives => _playerLivesCharacteristic;
 
-        public float Speed => _baseSpeed;
+        public float Speed => _currentSpeed;
         public float RotateSpeed => _baseRotateSpeed;
 
         public Transform Transform=>_transform;
@@ -42,7 +43,12 @@ namespace MSuhininTestovoe.Devgame
             return _currentScore = value;
         }
 
-
+        public float SetSpeed(float value)
+        {
+            return _currentSpeed = value;
+        }
+        
+        
         public int AddScore(int value)
         {
             return UpdateScore(_currentScore + value);
@@ -52,6 +58,7 @@ namespace MSuhininTestovoe.Devgame
         public void LoadInitValue()
         {
             _currentScore = _baseScore;
+            _currentSpeed = _baseSpeed;
             _playerLivesCharacteristic.LoadInitValue();
         }
     }

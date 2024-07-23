@@ -2,6 +2,5 @@
 {
     public struct IsPlayerCanAttackComponent
     {
-        public AttackInputView AttackInputView;
     }
 }

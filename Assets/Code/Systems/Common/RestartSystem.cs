@@ -36,9 +36,9 @@ namespace MSuhininTestovoe.Devgame
                Application.LoadLevelAsync(0);
                _isRestartPool.Del(entity);
                 Debug.Log("rest");
-                foreach (var VARIABLE in _filterTriggerEnter)
+                foreach (var trigEntity in _filterTriggerEnter)
                 {
-                    trig.Del(VARIABLE);
+                    trig.Del(trigEntity);
                 }
             }
         }
