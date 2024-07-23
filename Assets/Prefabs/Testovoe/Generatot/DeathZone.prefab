@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4972017612827722142}
   - component: {fileID: 481223358632442592}
   - component: {fileID: 1157779830770317554}
+  - component: {fileID: 9025722898661280794}
+  - component: {fileID: 1453312558738137737}
   m_Layer: 0
   m_Name: DeathZone
   m_TagString: Untagged
@@ -137,3 +139,28 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &9025722898661280794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2246069600913646576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d5071960684b97bcdb09d4072584ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1453312558738137737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2246069600913646576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d42ec59d52147ff9f06b8614c226abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapType: 501

@@ -1,5 +1,6 @@
 using Leopotam.EcsLite;
 using LeopotamGroup.Globals;
+using UnityEngine;
 
 
 namespace MSuhininTestovoe.Devgame
@@ -33,12 +34,12 @@ namespace MSuhininTestovoe.Devgame
                     if (!_isPlayerDeathPool.Has(entity))
                     {
                         ref var deathComponent = ref _isPlayerDeathPool.Add(entity);
+                        var timeServise = Service<ITimeService>.Get();
+                        timeServise.Pause();
                     }
 
                     if (!_isDeathMenuActive.Has(entity)) return;
                     ref var showMenu = ref _isDeathMenuActive.Get(entity);
-                    var timeServise = Service<ITimeService>.Get();
-                    timeServise.Pause();
                 }
             }
         }

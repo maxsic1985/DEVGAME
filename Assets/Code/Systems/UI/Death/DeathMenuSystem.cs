@@ -3,7 +3,6 @@ using LeopotamGroup.Globals;
 using UnityEngine;
 
 
-
 namespace MSuhininTestovoe.Devgame
 {
     public class DeathMenuSystem : IEcsInitSystem, IEcsRunSystem
@@ -50,7 +49,6 @@ namespace MSuhininTestovoe.Devgame
                     {
                         menu.MenuValue.SetActive(true);
                     }
-                    
                 }
             }
 
@@ -74,7 +72,7 @@ namespace MSuhininTestovoe.Devgame
 
                 _isRestartPool.Add(entity);
                 var timeServise = Service<ITimeService>.Get();
-                timeServise.Resume();
+            //    timeServise.Resume();
                 _quitMenuPool.Del(entity);
                 _menuRestartpool.Del(entity);
             }

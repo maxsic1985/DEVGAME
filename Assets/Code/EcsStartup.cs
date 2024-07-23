@@ -2,6 +2,7 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.Unity.Ugui;
 using LeoEcsPhysics;
+using LeopotamGroup.Globals;
 using Pathfinding;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace MSuhininTestovoe.Devgame
     {
         private EcsSystems _systems;
         private bool _hasInitCompleted;
+        private ITimeService _timeService;
         [SerializeField] private EcsUguiEmitter uguiEmitter;
         [SerializeField] private PathfinderScan AI;
         
@@ -20,6 +22,8 @@ namespace MSuhininTestovoe.Devgame
         {
             SharedData shared = new();
             await shared.Init();
+            
+            Application.targetFrameRate = 60;
             
             shared.GetPlayerSharedData.GetPlayerCharacteristic.LoadInitValue();
             

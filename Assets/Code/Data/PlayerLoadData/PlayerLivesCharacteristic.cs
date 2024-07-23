@@ -31,6 +31,7 @@ namespace MSuhininTestovoe.Devgame
 
         public int UpdateLives(int value)
         {
+            if (value == 0) _currentLives = value;
             _currentLives = _currentLives + value;
             if (_currentLives <= 0) return _currentLives = 0;
             if (_currentLives >= _maxLives) return _currentLives = _maxLives;

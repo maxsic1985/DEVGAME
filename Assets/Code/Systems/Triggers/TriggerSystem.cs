@@ -10,11 +10,12 @@ namespace MSuhininTestovoe.Devgame
         private EcsWorld _world;
         private EcsFilter _filterEnterToTrigger;
         private EcsFilter _filterExitFromTrigger;
+        private PlayerSharedData _sharedData;
         
-
         public void Init(IEcsSystems systems)
         {
             _world = systems.GetWorld();
+            _sharedData = systems.GetShared<SharedData>().GetPlayerSharedData;
 
             _filterEnterToTrigger = _world
                 .Filter<OnTriggerEnter2DEvent>()
@@ -35,6 +36,7 @@ namespace MSuhininTestovoe.Devgame
         {
             var poolEnter = _world.GetPool<OnTriggerEnter2DEvent>();
             DropEnterToTrigger(ecsSystems, poolEnter);
+            TrapEnterToTrigger(ecsSystems, poolEnter);
         }
     }
 }

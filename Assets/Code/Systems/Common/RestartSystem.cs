@@ -31,11 +31,10 @@ namespace MSuhininTestovoe.Devgame
             foreach (var entity in _filter)
             {
                 var timeServise = Service<ITimeService>.Get();
-                timeServise.Resume();
+              timeServise.Resume();
                 _sharedData.GetPlayerCharacteristic.LoadInitValue();
                Application.LoadLevelAsync(0);
-                // SceneManager.LoadScene((int)SceeneType.MAIN);
-                _isRestartPool.Del(entity);
+               _isRestartPool.Del(entity);
                 Debug.Log("rest");
                 foreach (var VARIABLE in _filterTriggerEnter)
                 {
