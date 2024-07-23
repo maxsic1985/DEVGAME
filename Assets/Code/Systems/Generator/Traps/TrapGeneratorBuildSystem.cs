@@ -29,17 +29,33 @@ namespace MSuhininTestovoe.Devgame
                 ref var prefabComponent = ref _prefabPool.Get(entity);
                 ref var mapGenerator = ref _mapGeneratorComponentPool.Get(entity);
 
-                CreateBorder(mapGenerator, prefabComponent);
+                CreateTraps(mapGenerator, prefabComponent);
                 _prefabPool.Del(entity);
             }
         }
 
-        private void CreateBorder(TrapGeneratorComponent trapGenerator, PrefabComponent prefabComponent)
+        private void CreateTraps(TrapGeneratorComponent trapGenerator, PrefabComponent prefabComponent)
         {
-            for (int i = 0; i < trapGenerator.Count; i++)
+            for (int i = 0; i < trapGenerator.DeathCount; i++)
             {
-                var gameObject = Object.Instantiate(prefabComponent.Value);
-                gameObject.transform.position = new Vector3(0, i+2, 0);
+                var deathTrap = Object.Instantiate(prefabComponent.Value);
+                deathTrap.transform.position = new Vector3(0, i+2, 0);
+                deathTrap.transform.localScale =
+                    new Vector3(trapGenerator.DeathSizeArea, trapGenerator.DeathSizeArea, 1);
+                deathTrap.GetComponent<SpriteRenderer>().color=Color.red;
+                deathTrap.GetComponent<TrapActor>().TrapType = TrapType.DEATH;
+                trapGenerator.Type = TrapType.DEATH;
+            }
+            
+            for (int i = 0; i < trapGenerator.SlowCount; i++)
+            {
+                var slowTrap = Object.Instantiate(prefabComponent.Value);
+                slowTrap.transform.position = new Vector3(i*2, 0, 0);
+                slowTrap.transform.localScale =
+                    new Vector3(trapGenerator.SlowSizeArea, trapGenerator.SlowSizeArea, 1);
+                slowTrap.GetComponent<SpriteRenderer>().color=Color.blue;
+                slowTrap.GetComponent<TrapActor>().TrapType = TrapType.SLOW;
+                trapGenerator.Type = TrapType.SLOW;
             }
         }
     }

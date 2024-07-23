@@ -6,6 +6,10 @@ namespace MSuhininTestovoe.Devgame
 {
     public struct TrapGeneratorComponent
     {
-        public int Count;
+        public TrapType Type;
+        public int DeathCount;
+        public int DeathSizeArea;
+        public int SlowCount;
+        public int SlowSizeArea;
     }
 }

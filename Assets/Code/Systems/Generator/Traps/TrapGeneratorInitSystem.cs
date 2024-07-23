@@ -31,7 +31,10 @@ namespace MSuhininTestovoe.Devgame
                     ref var trapComponent = ref _trapGeneratorComponentPool.Get(entity);
                     ref var loadPrefabFromPool = ref _loadPrefabPool.Add(entity);
                     loadPrefabFromPool.Value = dataInit.DeathTrap;
-                    trapComponent.Count = dataInit.Count;
+                    trapComponent.DeathSizeArea = dataInit.DeathSizeArea;
+                    trapComponent.DeathCount = dataInit.DeathCount;
+                    trapComponent.SlowSizeArea = dataInit.SlowSizeArea;
+                    trapComponent.SlowCount = dataInit.SlowCount;
                 }
 
                 _scriptableObjectPool.Del(entity);
