@@ -42,8 +42,6 @@ namespace MSuhininTestovoe.Devgame
                     playerStartPositionComponent.Value = dataInit.StartPosition;
 
                     ref SpeedVectorComponent speedVectorComponent = ref _speedVectorComponentPool.Add(entity);
-                    speedVectorComponent.Value = new Vector2(dataInit.MoveSpeed,dataInit.JumpSpeed);
-                    
                     _playerInputComponentPool.Add(entity);
                 }
                 _scriptableObjectPool.Del(entity);
