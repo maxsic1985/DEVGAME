@@ -17,6 +17,7 @@ namespace MSuhininTestovoe.Devgame
         [SerializeField] private float _baseRotateSpeed;
         [SerializeField] private int _baseScore;
         [SerializeField] private int _currentScore;
+        [SerializeField] private float _rayDistance;
         [SerializeField] private Transform _transform;
         
 
@@ -26,6 +27,7 @@ namespace MSuhininTestovoe.Devgame
 
         public float Speed => _currentSpeed;
         public float RotateSpeed => _baseRotateSpeed;
+        public float RayDistance => _rayDistance;
 
         public Transform Transform=>_transform;
         

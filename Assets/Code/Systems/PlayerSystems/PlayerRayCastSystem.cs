@@ -12,7 +12,8 @@ namespace MSuhininTestovoe.Devgame
         private EcsPool<IsPlayerCanAttackComponent> _isCanAttackComponentPool;
         private EcsPool<TransformComponent> _transformComponentPool;
         private EcsPool<HealthViewComponent> _enemyHealthViewComponentPool;
-
+        private PlayerSharedData _sharedData;
+        
         public void Init(IEcsSystems systems)
         {
             EcsWorld world = systems.GetWorld();
@@ -24,6 +25,7 @@ namespace MSuhininTestovoe.Devgame
             _transformComponentPool = world.GetPool<TransformComponent>();
             _isCanAttackComponentPool = world.GetPool<IsPlayerCanAttackComponent>();
             _enemyHealthViewComponentPool = world.GetPool<HealthViewComponent>();
+            _sharedData = systems.GetShared<SharedData>().GetPlayerSharedData;
         }
 
 
@@ -36,7 +38,7 @@ namespace MSuhininTestovoe.Devgame
                 RaycastHit2D hit = Physics2D.Raycast(
                     transformComponent.Value.position,
                     transformComponent.Value.right,
-                    5f,
+                    _sharedData.GetPlayerCharacteristic.RayDistance,
                     mask);
                 
                 if (hit)
