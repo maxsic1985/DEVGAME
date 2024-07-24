@@ -51,5 +51,11 @@ namespace MSuhininTestovoe.Devgame
             var rnd = new System.Random();
             return rnd.Next(Min, Max);
         }
+        
+        public static Vector3 GetRandomVector( int XMin, int XMax,int YMin, int YMax)
+        {
+            var rnd = new System.Random();
+            return new Vector3(rnd.Next(XMin, XMax),rnd.Next(YMin, YMax),0) ;
+        }
     }
 }

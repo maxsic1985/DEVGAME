@@ -39,9 +39,9 @@ namespace MSuhininTestovoe.Devgame
             for (int i = 0; i < trapGenerator.DeathCount; i++)
             {
                 var deathTrap = Object.Instantiate(prefabComponent.Value);
-                deathTrap.transform.position = new Vector3(0, i+2, 0);
-                deathTrap.transform.localScale =
-                    new Vector3(trapGenerator.DeathSizeArea, trapGenerator.DeathSizeArea, 1);
+                var position = Extensions.GetRandomVector(-28,28,-38,38);
+                deathTrap.transform.position =position;
+                deathTrap.transform.localScale = new Vector3(trapGenerator.DeathSizeArea, trapGenerator.DeathSizeArea, 1);
                 deathTrap.GetComponent<SpriteRenderer>().color=Color.red;
                 deathTrap.GetComponent<TrapActor>().TrapType = TrapType.DEATH;
                 trapGenerator.Type = TrapType.DEATH;
@@ -50,7 +50,8 @@ namespace MSuhininTestovoe.Devgame
             for (int i = 0; i < trapGenerator.SlowCount; i++)
             {
                 var slowTrap = Object.Instantiate(prefabComponent.Value);
-                slowTrap.transform.position = new Vector3(i*2, 0, 0);
+                var position = Extensions.GetRandomVector(-25,25,-35,35);
+                slowTrap.transform.position =position;
                 slowTrap.transform.localScale =
                     new Vector3(trapGenerator.SlowSizeArea, trapGenerator.SlowSizeArea, 1);
                 slowTrap.GetComponent<SpriteRenderer>().color=Color.blue;
