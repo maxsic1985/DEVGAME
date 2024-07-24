@@ -4,22 +4,26 @@ using Leopotam.EcsLite;
 using LeopotamGroup.Globals;
 using MSuhininTestovoe.Devgame;
 using UniRx;
-using Vector3 = UnityEngine.Vector3;
-
+using UnityEngine;
 
 
 namespace MSuhininTestovoe.B2B
 {
-    public class EnemyRespawnSystem : IEcsInitSystem, IEcsDestroySystem, IDisposable
+    public class EnemyRespawnSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
     {
         private EcsWorld _world;
         private EcsFilter filter;
         private EcsPool<TransformComponent> _transformComponentPool;
         private EcsPool<EnemyStartPositionComponent> _spawnPositionComponent;
         private IPoolService _poolService;
-        private List<IDisposable> _disposables = new List<IDisposable>();
+        private IDisposable _dispose;
         private PlayerSharedData _sharedData;
-
+        private int _interval = 2000;
+        private int _stepInterval = 100;
+        private const int  _minInterval = 500;
+        private int _tick = 0;
+        private bool start;
+        private bool run;
 
         public void Init(IEcsSystems systems)
         {
@@ -32,23 +36,25 @@ namespace MSuhininTestovoe.B2B
                 .Inc<TransformComponent>()
                 .Exc<IsEnemyComponent>()
                 .End();
+            
+
             _spawnPositionComponent = _world.GetPool<EnemyStartPositionComponent>();
             _transformComponentPool = _world.GetPool<TransformComponent>();
-            
-            Observable.Interval(TimeSpan.FromMilliseconds(7000))
-                .Where(_ => true).Subscribe(x =>
-                {
-                    Respawn(1);
-                })
-                .AddTo(_disposables);
+
+
+            start = true;
+            run = true;
+            _dispose = Observable.Interval(TimeSpan.FromMilliseconds(_interval))
+                .Where(_ => start).Subscribe(x => { Respawn(1); });
         }
 
 
         private void Respawn(int cnt)
         {
+            _tick += 1;
             foreach (var _ in filter)
             {
-                for (int i = 0; i <cnt; i++)
+                for (int i = 0; i < cnt; i++)
                 {
                     if (_poolService == null)
                     {
@@ -57,7 +63,7 @@ namespace MSuhininTestovoe.B2B
 
                     var pooled = _poolService.Get(GameObjectsTypeId.Enemy);
                     var entity = pooled.gameObject.GetComponent<EnemyActor>().Entity;
-                    
+
 
                     ref TransformComponent transformComponent = ref _transformComponentPool.Get(entity);
                     ref EnemyStartPositionComponent position = ref _spawnPositionComponent.Get(entity);
@@ -70,12 +76,28 @@ namespace MSuhininTestovoe.B2B
 
         public void Destroy(IEcsSystems systems)
         {
-            Dispose();
+            _dispose.Dispose();
         }
 
-        public void Dispose()
+
+        public void Run(IEcsSystems systems)
         {
-            _disposables.Clear();
+            if (_interval <= _minInterval) return;
+            
+            if (_tick == 10 && run)
+            {
+                start = false;
+                run = false;
+
+                _dispose.Dispose();
+                _interval -= _stepInterval;
+                _dispose = Observable.Interval(TimeSpan.FromMilliseconds(_interval))
+                    .Where(_ => start).Subscribe(x => { Respawn(1); });
+                _tick = 0;
+                run = true;
+                start = true;
+                return;
+            }
         }
     }
 }

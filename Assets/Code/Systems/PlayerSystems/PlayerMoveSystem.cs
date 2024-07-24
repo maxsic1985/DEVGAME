@@ -37,7 +37,7 @@ namespace MSuhininTestovoe.Devgame
             {
                 ref TransformComponent transformComponent = ref _transformComponentPool.Get(entity);
                 ref PlayerInputComponent playerInputComponent = ref _playerInputComponentPool.Get(entity);
-                Debug.Log(Time.timeScale);
+            
                 PlayerMoving(ref transformComponent, ref playerInputComponent);
             }
         }
