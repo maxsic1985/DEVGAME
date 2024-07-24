@@ -33,9 +33,9 @@ namespace MSuhininTestovoe.Devgame
                 var timeServise = Service<ITimeService>.Get();
               timeServise.Resume();
                 _sharedData.GetPlayerCharacteristic.LoadInitValue();
-               Application.LoadLevelAsync(0);
+               Application.LoadLevelAsync((int)SceeneType.MAIN);
                _isRestartPool.Del(entity);
-                Debug.Log("rest");
+           
                 foreach (var trigEntity in _filterTriggerEnter)
                 {
                     trig.Del(trigEntity);
