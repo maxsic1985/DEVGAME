@@ -15,7 +15,7 @@ namespace MSuhininTestovoe.B2B
         private EcsWorld _world;
         private EcsFilter filter;
         private EcsPool<TransformComponent> _transformComponentPool;
-        private EcsPool<AIDestanationComponent> _aiDestComponent;
+        private EcsPool<EnemyStartPositionComponent> _spawnPositionComponent;
         private IPoolService _poolService;
         private List<IDisposable> _disposables = new List<IDisposable>();
         private PlayerSharedData _sharedData;
@@ -28,11 +28,11 @@ namespace MSuhininTestovoe.B2B
 
             _world = systems.GetWorld();
             filter = systems.GetWorld()
-                .Filter<AIDestanationComponent>()
+                .Filter<EnemyStartPositionComponent>()
                 .Inc<TransformComponent>()
                 .Exc<IsEnemyComponent>()
                 .End();
-            _aiDestComponent = _world.GetPool<AIDestanationComponent>();
+            _spawnPositionComponent = _world.GetPool<EnemyStartPositionComponent>();
             _transformComponentPool = _world.GetPool<TransformComponent>();
             
             Observable.Interval(TimeSpan.FromMilliseconds(7000))
@@ -60,8 +60,8 @@ namespace MSuhininTestovoe.B2B
                     
 
                     ref TransformComponent transformComponent = ref _transformComponentPool.Get(entity);
-                    var position = Vector3.one;
-                    transformComponent.Value.position = position;
+                    ref EnemyStartPositionComponent position = ref _spawnPositionComponent.Get(entity);
+                    transformComponent.Value.position = position.Value;
                 }
 
                 return;

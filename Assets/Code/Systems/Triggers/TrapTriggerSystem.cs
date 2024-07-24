@@ -32,10 +32,7 @@ namespace MSuhininTestovoe.Devgame
                         var slowwSpeeed = (speed * 60) / 100;
                         _sharedData.GetPlayerCharacteristic.SetSpeed(speed-slowwSpeeed);
                     }
-
-
-                 //   GameObject.Destroy(trapCollider.gameObject);
-                 //   _world.DelEntity(trapEntity);
+                    
                     poolEnter.Del(entity);
                 }
             }

@@ -96,11 +96,12 @@ namespace MSuhininTestovoe.Devgame
 
                 aiDestanationComponent.AIDestinationSetter = pooled.gameObject.GetComponent<AIDestinationSetter>();
 
-                var index = Extensions.GetRandomInt(0, dataInit.DropPrefabs.Count);
-                dropAssetComponent.Drop = dataInit.DropPrefabs[index];
+                var dropIndex = Extensions.GetRandomInt(0, dataInit.DropPrefabs.Count);
+                dropAssetComponent.Drop = dataInit.DropPrefabs[dropIndex];
 
-                enemyStartPositionComponent.Value = dataInit.StartPositions[index];
-                enemyStartRotationComponent.Value = dataInit.StartRotation.FirstOrDefault();
+                var enemyIndex = Extensions.GetRandomInt(0, dataInit.StartPositions.Count);
+                enemyStartPositionComponent.Value = dataInit.StartPositions[enemyIndex];
+                enemyStartRotationComponent.Value = dataInit.StartRotation[enemyIndex];
 
                 _poolService.Return(pooled);
             }

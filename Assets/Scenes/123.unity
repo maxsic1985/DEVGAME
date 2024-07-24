@@ -255,9 +255,14 @@ PrefabInstance:
       propertyPath: _widgetName
       value: ShowInventotyWidget
       objectReference: {fileID: 0}
+    - target: {fileID: 7957201254330791130, guid: 607ab78d923b249e09c95de216107a51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2345964766367732562, guid: 607ab78d923b249e09c95de216107a51, type: 3}
+    - {fileID: 7957201254330791130, guid: 607ab78d923b249e09c95de216107a51, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 607ab78d923b249e09c95de216107a51, type: 3}
