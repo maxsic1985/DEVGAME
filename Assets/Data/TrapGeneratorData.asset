@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c045ff1f65d242e98b355e3b3f434115, type: 3}
-  m_Name: MapTrapGeneratorData
+  m_Name: TrapGeneratorData
   m_EditorClassIdentifier: 
   DeathTrap:
     m_AssetGUID: 615372d00f6f4814d9282e8dbf775cb1
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  Count: 2
+  DeathCount: 2
+  DeathSizeArea: 1
+  SlowCount: 3
+  SlowSizeArea: 3
