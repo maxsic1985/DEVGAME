@@ -3,10 +3,6 @@ using Leopotam.EcsLite;
 using LeopotamGroup.Globals;
 using MSuhininTestovoe.Devgame;
 using UniRx;
-<<<<<<< Updated upstream
-using UnityEngine;
-=======
->>>>>>> Stashed changes
 
 
 namespace MSuhininTestovoe.B2B
