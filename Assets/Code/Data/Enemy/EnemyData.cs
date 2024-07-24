@@ -20,6 +20,7 @@ namespace MSuhininTestovoe.Devgame
         public List<Vector3> StartRotation;
 
         [Header("Security:")]
+        public float CastDistance;
         public float EndReachedDistance;
         
         [Header("Drop:")]

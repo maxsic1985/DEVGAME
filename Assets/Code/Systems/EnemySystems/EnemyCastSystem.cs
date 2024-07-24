@@ -13,6 +13,7 @@ namespace MSuhininTestovoe.Devgame
         private EcsPool<IsEnemyFollowingComponent> _enemyIsFollowComponentPool;
         private EcsPool<TransformComponent> _transformComponent;
         private EcsPool<AIPathComponent> _isEnemyCanAtackComponenPool;
+        private EcsPool<AIDestanationComponent> _aiDestanationComponenPool;
         private EcsPool<HealthViewComponent> _enemyHealthViewComponentPool;
 
 
@@ -30,6 +31,7 @@ namespace MSuhininTestovoe.Devgame
             _isEnemyCanAtackComponenPool = _world.GetPool<AIPathComponent>();
             _enemyHealthViewComponentPool = _world.GetPool<HealthViewComponent>();
             _transformComponent = _world.GetPool<TransformComponent>();
+            _aiDestanationComponenPool = _world.GetPool<AIDestanationComponent>();
         }
 
         public void Run(IEcsSystems ecsSystems)
@@ -37,9 +39,14 @@ namespace MSuhininTestovoe.Devgame
             foreach (var entity in _filterEnemy)
             {   
                 LayerMask mask = LayerMask.GetMask(GameConstants.PLAYER_LAYER);
+                ref AIDestanationComponent aiDestanationComponent = ref _aiDestanationComponenPool.Get(entity);
                 ref TransformComponent transform = ref _transformComponent.Get(entity);
                 var aiDestinationSetter = transform.Value.GetComponent<AIDestinationSetter>();
-                RaycastHit2D hit = Physics2D.CircleCast(transform.Value.position, 3f, transform.Value.forward,0f,mask);
+                RaycastHit2D hit = Physics2D.CircleCast(transform.Value.position,
+                    aiDestanationComponent.CastDistance,
+                    transform.Value.forward,
+                    0f,
+                    mask);
                 if (hit)
                 {
                     var player = hit.collider.gameObject.GetComponent<PlayerActor>();
@@ -52,7 +59,7 @@ namespace MSuhininTestovoe.Devgame
                     var target = player.transform;
                     aiDestinationSetter.target = target;
                     isReacheded.AIPath = reached;
-                    reached.endReachedDistance = 0.5f;
+                    reached.endReachedDistance = aiDestanationComponent.EndReachedDistance;
                     
                     _enemyIsFollowComponentPool.Add(entity);
                 }

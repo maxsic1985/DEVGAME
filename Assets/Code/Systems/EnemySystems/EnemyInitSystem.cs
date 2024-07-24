@@ -95,7 +95,10 @@ namespace MSuhininTestovoe.Devgame
                 enemyBoxColliderComponent.ColliderValue = pooled.GetComponent<BoxCollider>();
 
                 aiDestanationComponent.AIDestinationSetter = pooled.gameObject.GetComponent<AIDestinationSetter>();
-
+                aiDestanationComponent.EndReachedDistance = dataInit.EndReachedDistance;
+                aiDestanationComponent.CastDistance = dataInit.CastDistance;
+                
+                
                 var dropIndex = Extensions.GetRandomInt(0, dataInit.DropPrefabs.Count);
                 dropAssetComponent.Drop = dataInit.DropPrefabs[dropIndex];
 
