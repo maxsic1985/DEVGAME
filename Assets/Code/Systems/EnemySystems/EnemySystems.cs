@@ -1,5 +1,5 @@
 ﻿using Leopotam.EcsLite;
-
+using MSuhininTestovoe.B2B;
 
 
 namespace MSuhininTestovoe.Devgame
@@ -13,7 +13,8 @@ namespace MSuhininTestovoe.Devgame
                 .Add(new EnemyInitSystem())
                 .Add(new EnemyAtackSystem())
                 .Add(new EnemyCastSystem())
-                .Add(new EnemyDeathSystem());
+                .Add(new EnemyDeathSystem())
+                .Add(new EnemyRespawnSystem());
 
         }
     }

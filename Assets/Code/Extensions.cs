@@ -46,7 +46,7 @@ namespace MSuhininTestovoe.Devgame
             return UniqueArray;
         }
         
-        public static int GetRandomDigit( int Min, int Max)
+        public static int GetRandomInt( int Min, int Max)
         {
             var rnd = new System.Random();
             return rnd.Next(Min, Max);

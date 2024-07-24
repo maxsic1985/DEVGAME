@@ -48,6 +48,7 @@ namespace MSuhininTestovoe
         {
             foreach (var entity in _filter)
             {
+                if(!_itemComponentPool.Has(_selectedEntity)) return;
                 ref ItemComponent item = ref _itemComponentPool.Get(_selectedEntity);
                 if (item.Count == 0) return;
                 ref DropAssetComponent dropAsset = ref _dropAssetComponentPool.Add(_selectedEntity);

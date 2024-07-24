@@ -34,8 +34,8 @@ namespace MSuhininTestovoe.Devgame
                     }
 
 
-                    GameObject.Destroy(trapCollider.gameObject);
-                    _world.DelEntity(trapEntity);
+                 //   GameObject.Destroy(trapCollider.gameObject);
+                 //   _world.DelEntity(trapEntity);
                     poolEnter.Del(entity);
                 }
             }

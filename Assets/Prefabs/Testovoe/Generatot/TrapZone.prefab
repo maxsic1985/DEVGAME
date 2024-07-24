@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1157779830770317554}
   - component: {fileID: 9025722898661280794}
   - component: {fileID: 1453312558738137737}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TrapZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,4 +163,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d42ec59d52147ff9f06b8614c226abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapType: 501
+  TrapType: 0

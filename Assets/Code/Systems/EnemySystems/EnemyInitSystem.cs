@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Leopotam.EcsLite;
 using LeopotamGroup.Globals;
 using Pathfinding;
@@ -60,9 +61,7 @@ namespace MSuhininTestovoe.Devgame
                     ref LoadPrefabComponent loadPrefabFromPool = ref _loadPrefabPool.Add(entity);
 
                     CreateEnemy(entity, dataInit);
-                    SpawnEnemy(dataInit);
                 }
-
                 _scriptableObjectPool.Del(entity);
             }
         }
@@ -74,7 +73,7 @@ namespace MSuhininTestovoe.Devgame
             {
                 var newEntity = _world.NewEntity();
                 GameObject pooled = _poolService.Get(GameObjectsTypeId.Enemy);
-                pooled.gameObject.GetComponent<IActor>().AddEntity(newEntity);
+                pooled.gameObject.GetComponent<EnemyActor>().AddEntity(newEntity);
 
                 ref EnemySpawnComponent spawn = ref _enemySpawnComponentPool.Add(newEntity);
                 ref TransformComponent transformComponent = ref _transformComponentPool.Add(newEntity);
@@ -89,52 +88,25 @@ namespace MSuhininTestovoe.Devgame
 
                 spawn.SpawnLenght = dataInit.CountForInstantiate;
                 transformComponent.Value = pooled.gameObject.GetComponent<TransformView>().Transform;
+                
                 enemyHealth.HealthValue = dataInit.Lives;
                 pooled.GetComponent<HealthView>().Value.size = new Vector2(enemyHealth.HealthValue, 1);
-                
+
                 enemyBoxColliderComponent.ColliderValue = pooled.GetComponent<BoxCollider>();
-                enemyStartPositionComponent.Value = new List<Vector3>();
-                enemyStartRotationComponent.Value = new List<Vector3>();
+
                 aiDestanationComponent.AIDestinationSetter = pooled.gameObject.GetComponent<AIDestinationSetter>();
-                var index = Extensions.GetRandomDigit(0, dataInit.DropPrefabs.Count);
+
+                var index = Extensions.GetRandomInt(0, dataInit.DropPrefabs.Count);
                 dropAssetComponent.Drop = dataInit.DropPrefabs[index];
 
-                foreach (var pos in dataInit.StartPositions)
-                {
-                    enemyStartPositionComponent.Value.Add(pos);
-                }
+                enemyStartPositionComponent.Value = dataInit.StartPositions[index];
+                enemyStartRotationComponent.Value = dataInit.StartRotation.FirstOrDefault();
 
-                foreach (var pos in dataInit.StartRotation)
-                {
-                    enemyStartRotationComponent.Value.Add(pos);
-                }
-             
                 _poolService.Return(pooled);
             }
 
             _isEnemyPool.Del(entity);
             _loadPrefabPool.Del(entity);
-        }
-
-
-        private void SpawnEnemy(EnemyData dataInit)
-        {
-            var positionIndex = Extensions
-                .GetUniqeRandomArray(dataInit.CountForInstantiate, 0, dataInit.StartPositions.Count);
-
-            for (int i = 0; i < dataInit.CountForInstantiate; i++)
-            {
-                GameObject pooled = _poolService.Get(GameObjectsTypeId.Enemy);
-                var entity = pooled.gameObject.GetComponent<IActor>().Entity;
-
-                ref EnemyStartPositionComponent enemyStartPositionComponent =
-                    ref _enemyStartPositionComponentPool.Get(entity);
-                ref EnemyStartRotationComponent enemyStartRotationComponent =
-                    ref _enemyStartRotationComponentPool.Get(entity);
-
-                pooled.transform.position = enemyStartPositionComponent.Value[positionIndex[i]];
-                pooled.transform.rotation = Quaternion.EulerAngles(enemyStartRotationComponent.Value[positionIndex[i]]);
-            }
         }
     }
 }

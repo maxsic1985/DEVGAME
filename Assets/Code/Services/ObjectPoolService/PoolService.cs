@@ -74,6 +74,7 @@ namespace MSuhininTestovoe.Devgame
         public void Return(GameObject gameObject)
         {
             gameObject.transform.parent = PoolServiceTransform;
+            gameObject.transform.position = new Vector3(-1000, -1000, -1000);
             gameObject.SetActive(false);
         }
 

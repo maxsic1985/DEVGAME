@@ -5,7 +5,6 @@ using UniRx;
 using UnityEngine;
 
 
-
 namespace MSuhininTestovoe.Devgame
 {
     public class EnemyAtackSystem : IEcsInitSystem, IEcsRunSystem, IDisposable
