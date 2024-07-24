@@ -3,8 +3,7 @@ namespace MSuhininTestovoe.Devgame
     public enum DropType
     {
         EMPTY=0,
-        HELMET = 10,
-        BAG = 11
-        
+        WEAPON = 10,
+        BAF = 11
     }
 }
