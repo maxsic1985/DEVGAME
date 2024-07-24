@@ -10,13 +10,21 @@ using Vector3 = UnityEngine.Vector3;
 
 namespace MSuhininTestovoe.B2B
 {
+<<<<<<< Updated upstream
     public class EnemyRespawnSystem : IEcsInitSystem, IEcsDestroySystem, IDisposable
+=======
+    public class EnemyRespawnSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem,IDisposable
+>>>>>>> Stashed changes
     {
         private EcsWorld _world;
         private EcsFilter filter;
         private EcsPool<TransformComponent> _transformComponentPool;
         private EcsPool<EnemyStartPositionComponent> _spawnPositionComponent;
         private IPoolService _poolService;
+<<<<<<< Updated upstream
+=======
+        private IDisposable _dispose;
+>>>>>>> Stashed changes
         private List<IDisposable> _disposables = new List<IDisposable>();
         private PlayerSharedData _sharedData;
 
@@ -34,6 +42,7 @@ namespace MSuhininTestovoe.B2B
                 .End();
             _spawnPositionComponent = _world.GetPool<EnemyStartPositionComponent>();
             _transformComponentPool = _world.GetPool<TransformComponent>();
+<<<<<<< Updated upstream
             
             Observable.Interval(TimeSpan.FromMilliseconds(7000))
                 .Where(_ => true).Subscribe(x =>
@@ -41,6 +50,17 @@ namespace MSuhininTestovoe.B2B
                     Respawn(1);
                 })
                 .AddTo(_disposables);
+=======
+
+
+            start = true;
+            run = true;
+            Observable.Interval(TimeSpan.FromMilliseconds(_interval))
+                .Where(_ => start).Subscribe(x => { Respawn(1); }).AddTo(_disposables);
+            
+            Observable.Interval(TimeSpan.FromMilliseconds(1000))
+                .Where(_ => start).Subscribe(x => { Tick(); }).AddTo(_disposables);
+>>>>>>> Stashed changes
         }
 
 
@@ -68,6 +88,43 @@ namespace MSuhininTestovoe.B2B
             }
         }
 
+<<<<<<< Updated upstream
+        public void Destroy(IEcsSystems systems)
+        {
+            Dispose();
+        }
+=======
+>>>>>>> Stashed changes
+
+        public void Dispose()
+        {
+<<<<<<< Updated upstream
+            _disposables.Clear();
+=======
+            if (_interval <= _minInterval) return;
+            
+            if (_tick == 10 && run)
+            {
+                start = false;
+                run = false;
+                Dispose();
+
+                _interval -= _stepInterval;
+                _dispose = Observable.Interval(TimeSpan.FromMilliseconds(_interval))
+                    .Where(_ => start).Subscribe(x => { Respawn(1); });
+                _tick = 0;
+                run = true;
+                start = true;
+                return;
+            }
+>>>>>>> Stashed changes
+        }
+
+        private void Tick()
+        { 
+            _tick += 1;
+        }
+
         public void Destroy(IEcsSystems systems)
         {
             Dispose();
@@ -75,7 +132,10 @@ namespace MSuhininTestovoe.B2B
 
         public void Dispose()
         {
-            _disposables.Clear();
+            for (int i = 0; i < _disposables.Count; i++)
+            {
+                _disposables[i].Dispose();
+            }
         }
     }
 }
