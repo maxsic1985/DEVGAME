@@ -34,6 +34,9 @@ namespace MSuhininTestovoe.Devgame
                     if (!_isPlayerDeathPool.Has(entity))
                     {
                         ref var deathComponent = ref _isPlayerDeathPool.Add(entity);
+                        systems.GetWorld().GetPool<IsManagePlayerStatsComponent>().Add(entity)
+                            .dataAction = DataManageEnumType.Save;
+                        
                         var timeServise = Service<ITimeService>.Get();
                         timeServise.Pause();
                     }

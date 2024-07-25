@@ -16,13 +16,14 @@ namespace MSuhininTestovoe.Devgame
         private EcsPool<IsDropInstantiateFlag> _isDropComponentPool;
         private EcsPool<DropAssetComponent> _dropAssetComponentPool;
         private IPoolService _poolService;
-        private int _deathEnemyCnt=0;
+        private PlayerSharedData _sharedData;
         [EcsUguiNamed(UIConstants.ENEMY_CNT)] readonly TextMeshProUGUI _enemyCntlabel = default;
 
         
         public void Init(IEcsSystems systems)
         {
             _world = systems.GetWorld();
+            _sharedData = systems.GetShared<SharedData>().GetPlayerSharedData;
             
             _enemyFilter = _world
                 .Filter<EnemyHealthComponent>()
@@ -36,7 +37,7 @@ namespace MSuhininTestovoe.Devgame
             _transformComponentPool = _world.GetPool<TransformComponent>();
             _isDropComponentPool = _world.GetPool<IsDropInstantiateFlag>();
             _dropAssetComponentPool = _world.GetPool<DropAssetComponent>();
-            _enemyCntlabel.text = _deathEnemyCnt.ToString();
+            _enemyCntlabel.text = _sharedData.GetPlayerCharacteristic.CurrentCoins.ToString();
         }
 
         
@@ -53,8 +54,8 @@ namespace MSuhininTestovoe.Devgame
                     _poolService.Return(transform.Value.gameObject);
                     health.HealthValue = 3;
                     
-                    _deathEnemyCnt += 1;
-                    _enemyCntlabel.text = _deathEnemyCnt.ToString();
+                    _sharedData.GetPlayerCharacteristic.AddScore(1);
+                    _enemyCntlabel.text = _sharedData.GetPlayerCharacteristic.CurrentCoins.ToString();
                     
                     _healthView.Del(entity);
                     

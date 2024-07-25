@@ -13,6 +13,7 @@ namespace MSuhininTestovoe.Devgame
                 .Add(new LoadDataByNameSystem());
 
             new CommonSystems(systems);
+            new DataManagerSystems(systems);
             new MapGeneratorSystems(systems);
             new TrapGeneratorSystems(systems);
             new TriggerSystems(systems);
