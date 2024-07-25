@@ -38,7 +38,7 @@ namespace MSuhininTestovoe.Devgame
             _isReachedComponentPool = _world.GetPool<AIPathComponent>();
             _aiDestanationComponenPool = _world.GetPool<AIDestanationComponent>();
 
-            Observable.Interval(TimeSpan.FromMilliseconds(3000)).Where(_ => ReachedToPlayer)
+            Observable.Interval(TimeSpan.FromMilliseconds(500)).Where(_ => ReachedToPlayer)
                 .Subscribe(x => { Attack(); })
                 .AddTo(_disposables);
         }

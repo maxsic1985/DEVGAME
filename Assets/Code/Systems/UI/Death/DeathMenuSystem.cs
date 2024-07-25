@@ -17,7 +17,7 @@ namespace MSuhininTestovoe.Devgame
         private EcsPool<BtnToMainMenu> _toMainMenuPool;
         private EcsPool<BtnQuit> _quitMenuPool;
         private EcsPool<BtnRestart> _menuRestartpool;
-        private EcsPool<IsDeathMenu> _isDeathMenuPool;
+        private EcsPool<IsMenu> _isDeathMenuPool;
         private EcsPool<IsRestartComponent> _isRestartPool;
 
 
@@ -25,15 +25,15 @@ namespace MSuhininTestovoe.Devgame
         {
             _world = systems.GetWorld();
             _isPlayerDeathPool = _world.Filter<IsPlayerDeathComponent>().End();
-            _isDeathMenu = _world.Filter<IsDeathMenu>().End();
-            _filterToMainMenuPool = _world.Filter<BtnToMainMenu>().Inc<IsDeathMenu>().End();
-            _filterQuitMenuPool = _world.Filter<BtnQuit>().Inc<IsDeathMenu>().End();
-            _filterRestartPool = _world.Filter<BtnRestart>().Inc<IsDeathMenu>().End();
+            _isDeathMenu = _world.Filter<IsMenu>().End();
+            _filterToMainMenuPool = _world.Filter<BtnToMainMenu>().Inc<IsMenu>().End();
+            _filterQuitMenuPool = _world.Filter<BtnQuit>().Inc<IsMenu>().End();
+            _filterRestartPool = _world.Filter<BtnRestart>().Inc<IsMenu>().End();
 
             _toMainMenuPool = _world.GetPool<BtnToMainMenu>();
             _quitMenuPool = _world.GetPool<BtnQuit>();
             _menuRestartpool = _world.GetPool<BtnRestart>();
-            _isDeathMenuPool = _world.GetPool<IsDeathMenu>();
+            _isDeathMenuPool = _world.GetPool<IsMenu>();
             _isRestartPool = _world.GetPool<IsRestartComponent>();
         }
 
@@ -63,7 +63,7 @@ namespace MSuhininTestovoe.Devgame
         {
             foreach (var entity in _filterRestartPool)
             {
-                var menuPool = _world.GetPool<IsDeathMenu>();
+                var menuPool = _world.GetPool<IsMenu>();
                 ref var menu = ref menuPool.Get(entity);
                 if (_quitMenuPool.Has(entity))
                 {
