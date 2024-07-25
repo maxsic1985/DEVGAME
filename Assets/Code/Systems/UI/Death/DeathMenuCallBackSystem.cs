@@ -1,5 +1,6 @@
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Unity.Ugui;
+using LeopotamGroup.Globals;
 using MSuhininTestovoe.Devgame;
 using UnityEngine;
 using UnityEngine.Scripting;
@@ -36,6 +37,7 @@ namespace MSuhininTestovoe
             foreach (var entity in _filter)
             {
                 _isMenuPool.Get(entity).MenuValue.gameObject.SetActive(true);
+           
             }
         }
         
@@ -47,6 +49,8 @@ namespace MSuhininTestovoe
             foreach (var entity in _filter)
             {
                 _toMainMenuBtnCommandPool.Add(entity);
+                var timeServise = Service<ITimeService>.Get();
+                timeServise.Resume();
             }
         }
         
