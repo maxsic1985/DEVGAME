@@ -26,6 +26,7 @@ namespace MSuhininTestovoe.Devgame
         public PlayerLivesCharacteristic GetLives => _playerLivesCharacteristic;
 
         public float Speed => _currentSpeed;
+        public int CurrentCoins => _currentScore;
         public float RotateSpeed => _baseRotateSpeed;
         public float RayDistance => _rayDistance;
 
@@ -44,6 +45,10 @@ namespace MSuhininTestovoe.Devgame
         {
             return _currentScore = value;
         }
+        public int AddScore(int value)
+        {
+            return UpdateScore(_currentScore + value);
+        }
 
         public float SetSpeed(float value)
         {
@@ -51,10 +56,6 @@ namespace MSuhininTestovoe.Devgame
         }
         
         
-        public int AddScore(int value)
-        {
-            return UpdateScore(_currentScore + value);
-        }
 
 
         public void LoadInitValue()

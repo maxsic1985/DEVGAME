@@ -33,6 +33,10 @@ namespace MSuhininTestovoe.Devgame
                 var timeServise = Service<ITimeService>.Get();
               timeServise.Resume();
                 _sharedData.GetPlayerCharacteristic.LoadInitValue();
+                
+                systems.GetWorld().GetPool<IsManagePlayerStatsComponent>().Add(entity)
+                    .dataAction = DataManageEnumType.Load;
+                
                Application.LoadLevelAsync((int)SceeneType.MAIN);
                _isRestartPool.Del(entity);
            
