@@ -10,13 +10,13 @@ namespace MSuhininTestovoe.Devgame
         private EcsWorld _world;
         private EcsPool<ScriptableObjectComponent> _scriptableObjectPool;
         private EcsPool<LoadPrefabComponent> _loadPrefabPool;
-        private EcsPool<IsDeathMenu> _isDeathMenuPool;
+        private EcsPool<IsMenu> _isDeathMenuPool;
         
         
         public void Init(IEcsSystems systems)
         {
             _world = systems.GetWorld();
-            _filter = _world.Filter<IsDeathMenu>().Inc<ScriptableObjectComponent>().End();
+            _filter = _world.Filter<IsMenu>().Inc<ScriptableObjectComponent>().End();
             _scriptableObjectPool = _world.GetPool<ScriptableObjectComponent>();
             _loadPrefabPool = _world.GetPool<LoadPrefabComponent>();
         }

@@ -9,7 +9,7 @@ namespace MSuhininTestovoe.Devgame
     {
         private EcsFilter _filter;
         private EcsPool<IsPlayerDeathComponent> _isPlayerDeathPool;
-        private EcsPool<IsDeathMenu> _isDeathMenuActive;
+        private EcsPool<IsMenu> _isDeathMenuActive;
         private PlayerSharedData _sharedData;
 
 
@@ -22,7 +22,7 @@ namespace MSuhininTestovoe.Devgame
                 .Filter<IsPlayerComponent>()
                 .End();
             _isPlayerDeathPool = world.GetPool<IsPlayerDeathComponent>();
-            _isDeathMenuActive = world.GetPool<IsDeathMenu>();
+            _isDeathMenuActive = world.GetPool<IsMenu>();
         }
 
         public void Run(IEcsSystems systems)

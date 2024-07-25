@@ -5,7 +5,7 @@ namespace MSuhininTestovoe.Devgame
         public  const string MENU_RESTART="RestartBtnWidjet";
         public  const string MENU_TO_MAIN_MENU="ToMainMenuWidget";
         public  const string MENU_QUIT="QuitWidget";
-        public  const string BTN_ATACK="PlayerAttackWidget";
+        public  const string BTN_SHOW_MENU="ShowMenuWidget";
         public  const string BTN_CLOSE_INVENTORY="CloseInventotyWidget";
         public  const string BTN_SHOW_INVENTORY="ShowInventotyWidget";
         public  const string BTN_DROP_FROM_INVENTORY="DropFromInventotyWidget";

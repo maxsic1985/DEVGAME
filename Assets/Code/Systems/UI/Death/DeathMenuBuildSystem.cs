@@ -8,15 +8,15 @@ namespace MSuhininTestovoe.Devgame
     {
         private EcsFilter _filter;
         private EcsPool<PrefabComponent> _prefabPool;
-        private EcsPool<IsDeathMenu> _isMenuPool;
+        private EcsPool<IsMenu> _isMenuPool;
 
 
         public void Init(IEcsSystems systems)
         {
             var world = systems.GetWorld();
-            _filter = world.Filter<PrefabComponent>().Inc<IsDeathMenu>().End();
+            _filter = world.Filter<PrefabComponent>().Inc<IsMenu>().End();
             _prefabPool = world.GetPool<PrefabComponent>();
-            _isMenuPool = world.GetPool<IsDeathMenu>();
+            _isMenuPool = world.GetPool<IsMenu>();
         }
 
 
