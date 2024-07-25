@@ -71,8 +71,6 @@ namespace MSuhininTestovoe.Devgame
                 }
 
                 _isRestartPool.Add(entity);
-                var timeServise = Service<ITimeService>.Get();
-            //    timeServise.Resume();
                 _quitMenuPool.Del(entity);
                 _menuRestartpool.Del(entity);
             }
@@ -95,7 +93,7 @@ namespace MSuhininTestovoe.Devgame
             {
                 if (_toMainMenuPool.Has(entity))
                 {
-                    Debug.Log($"Go To main menu");
+                    Application.LoadLevelAsync((int)SceeneType.MENU);
                 }
             }
         }
