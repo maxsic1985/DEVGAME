@@ -4,16 +4,31 @@ using UnityEngine;
 
 namespace MSuhininTestovoe.Devgame
 {
-
-
     [Serializable]
     public sealed class PlayerSaveData
     {
-        public int coins;
+        private int _coins;
+        public int _bestResult;
 
         public PlayerSaveData()
         {
-            coins = 0;
+            _coins = 0;
+          //  _bestResult = 0;
+        }
+
+        public int Coins
+        {
+            get => _coins;
+            set => _coins = value;
+        }
+
+        public int BestResultRead => _bestResult;
+
+        public int BestResult()
+        {
+            _bestResult = _coins > _bestResult ? _coins : _bestResult;
+            Debug.Log(_bestResult);
+            return _bestResult;
         }
     }
 }

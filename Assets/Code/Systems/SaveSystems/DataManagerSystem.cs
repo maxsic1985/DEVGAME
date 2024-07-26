@@ -1,5 +1,7 @@
 using Leopotam.EcsLite;
 using System.IO;
+using Leopotam.EcsLite.Unity.Ugui;
+using TMPro;
 using UnityEngine;
 
 
@@ -13,7 +15,6 @@ namespace MSuhininTestovoe.Devgame
         private PlayerSaveData _playerSaveData;
         private EcsFilter _filter;
         private EcsPool<IsManagePlayerStatsComponent> _isManagePlayerStatsComponentPool;
-
 
         public void Init(IEcsSystems systems)
         {
@@ -33,7 +34,8 @@ namespace MSuhininTestovoe.Devgame
                 switch (_isManagePlayerStatsComponentPool.Get(entity).dataAction)
                 {
                     case DataManageEnumType.Save:
-                        _playerSaveData.coins = _playerSharedData.GetPlayerCharacteristic.CurrentCoins;
+                        _playerSaveData.Coins = _playerSharedData.GetPlayerCharacteristic.CurrentCoins;
+                        _playerSaveData.BestResult();
                         SavePlayerStats();
                         break;
                     case DataManageEnumType.Load:
@@ -69,13 +71,13 @@ namespace MSuhininTestovoe.Devgame
             {
                 _playerSaveData = new PlayerSaveData();
             }
-            _playerSharedData.GetPlayerCharacteristic.UpdateScore(_playerSaveData.coins);
+            _playerSharedData.GetPlayerCharacteristic.UpdateScore(0);
         }
 
         private void ClearPlayerStats()
         {
             _playerSaveData = new PlayerSaveData();
-            _playerSharedData.GetPlayerCharacteristic.UpdateScore(_playerSaveData.coins);
+            _playerSharedData.GetPlayerCharacteristic.UpdateScore(_playerSaveData.Coins);
             SavePlayerStats();
         }
     }

@@ -67,7 +67,6 @@ namespace MSuhininTestovoe.Devgame
             ref EnemyHealthComponent healthValue = ref _enemyHealthComponentPool.Get(_entity);
             healthValue.HealthValue -= 1;
             AddHitSoundComponent(ref _systems, SoundsEnumType.FIRE);
-            Debug.Log("fire");
         }
 
         private void AddHitSoundComponent(ref IEcsSystems systems, SoundsEnumType type)
