@@ -61,7 +61,7 @@ namespace MSuhininTestovoe.Devgame
 
                 _loadPrefabPool.Del(entity);
                 _isDropInstantiateFlag.Del(entity);
-                _dropPool.Del(entity);
+            //    _dropPool.Del(entity);
             }
         }
     }

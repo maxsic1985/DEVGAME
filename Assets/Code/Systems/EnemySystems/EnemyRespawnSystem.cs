@@ -3,6 +3,7 @@ using Leopotam.EcsLite;
 using LeopotamGroup.Globals;
 using MSuhininTestovoe.Devgame;
 using UniRx;
+using UnityEngine;
 
 
 namespace MSuhininTestovoe.B2B
@@ -13,6 +14,7 @@ namespace MSuhininTestovoe.B2B
         private EcsFilter filter;
         private EcsPool<TransformComponent> _transformComponentPool;
         private EcsPool<EnemyStartPositionComponent> _spawnPositionComponent;
+        private EcsPool<EnemyHealthComponent> _enemyHealthComponent;
         private IPoolService _poolService;
         private IDisposable _dispose;
         private PlayerSharedData _sharedData;
@@ -38,6 +40,7 @@ namespace MSuhininTestovoe.B2B
 
             _spawnPositionComponent = _world.GetPool<EnemyStartPositionComponent>();
             _transformComponentPool = _world.GetPool<TransformComponent>();
+            _enemyHealthComponent = _world.GetPool<EnemyHealthComponent>();
 
 
             start = true;
@@ -65,7 +68,10 @@ namespace MSuhininTestovoe.B2B
 
                     ref TransformComponent transformComponent = ref _transformComponentPool.Get(entity);
                     ref EnemyStartPositionComponent position = ref _spawnPositionComponent.Get(entity);
+                    ref EnemyHealthComponent health = ref _enemyHealthComponent.Get(entity);
                     transformComponent.Value.position = position.Value;
+                    pooled.GetComponent<HealthView>().Value.size = new Vector2(health.HealthValue, 1);
+                    pooled.GetComponent<HealthView>().Value.color=Color.green;  
                 }
 
                 return;
