@@ -11,6 +11,6 @@ namespace MSuhininTestovoe.Devgame
         public  const string BTN_DROP_FROM_INVENTORY="DropFromInventotyWidget";
         public  const string BTN_SELECT_SLOT="SelectSlotWidget";
         public  const string ENEMY_CNT="EnemyLblWidget";
-        public const string START_GAME = "StartGame";
+        public  const string BEST_SCORE="BestScore";
     }
 }
