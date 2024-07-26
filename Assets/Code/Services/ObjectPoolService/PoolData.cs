@@ -12,6 +12,6 @@ namespace MSuhininTestovoe.Devgame
         public GameObjectsTypeId _gameObjectsTypeId;
 
         public AssetReferenceGameObject PooledObject;
-        [Range(100, 100)] public int Capacity = 100;
+        [Range(100, 100)] public int Capacity = 5;
     }
 }
