@@ -6,9 +6,9 @@ namespace MSuhininTestovoe.Devgame
 {
 
 
-    [CreateAssetMenu(fileName = nameof(DropData),
-        menuName = EditorMenuConstants.CREATE_DATA_MENU_NAME + nameof(DropData))]
-    public class DropData : ScriptableObject
+    [CreateAssetMenu(fileName = nameof(BonusData),
+        menuName = EditorMenuConstants.CREATE_DATA_MENU_NAME + nameof(BonusData))]
+    public class BonusData : ScriptableObject
     {
         [Header("Prefabs:")]
         public List<AssetReferenceGameObject> DropPrefab;

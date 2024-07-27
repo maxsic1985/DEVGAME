@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace MSuhininTestovoe.Devgame
 {
-    public struct DropComponent
+    public struct BonusComponent
     {
         public DropType DropType;
         public Sprite Sprite;

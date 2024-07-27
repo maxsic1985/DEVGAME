@@ -12,8 +12,7 @@ namespace MSuhininTestovoe
         private EcsWorld _world;
         private EcsPool<BtnQuit> _quitBtnCommandPool;
         private EcsPool<IsInventory> _isInventoryPool;
-        private EcsPool<IsDropInstantiateFlag> _isDropComponentPool;
-        private EcsPool<DropAssetComponent> _dropAssetComponentPool;
+        private EcsPool<IsBonusComponent> _isDropComponentPool;
         private EcsPool<ItemComponent> _itemComponentPool;
         private int _selectedEntity;
         private SlotView _selectedSlot;
@@ -25,8 +24,7 @@ namespace MSuhininTestovoe
             _filter = _world.Filter<IsInventory>().End();
             _quitBtnCommandPool = _world.GetPool<BtnQuit>();
             _isInventoryPool = _world.GetPool<IsInventory>();
-            _isDropComponentPool = _world.GetPool<IsDropInstantiateFlag>();
-            _dropAssetComponentPool = _world.GetPool<DropAssetComponent>();
+            _isDropComponentPool = _world.GetPool<IsBonusComponent>();
             _itemComponentPool = _world.GetPool<ItemComponent>();
         }
 
@@ -42,22 +40,7 @@ namespace MSuhininTestovoe
             }
         }
 
-        [Preserve]
-        [EcsUguiClickEvent(UIConstants.BTN_DROP_FROM_INVENTORY, WorldsNamesConstants.EVENTS)]
-        void OnClickDropFromInventory(in EcsUguiClickEvent e)
-        {
-            foreach (var entity in _filter)
-            {
-                if(!_itemComponentPool.Has(_selectedEntity)) return;
-                ref ItemComponent item = ref _itemComponentPool.Get(_selectedEntity);
-                if (item.Count == 0) return;
-                ref DropAssetComponent dropAsset = ref _dropAssetComponentPool.Add(_selectedEntity);
-                dropAsset.Drop = item.Prefab;
-                ref IsDropInstantiateFlag drop = ref _isDropComponentPool.Add(_selectedEntity);
-
-                UpdateInventory(ref item);
-            }
-        }
+      
 
         [Preserve]
         [EcsUguiClickEvent(UIConstants.BTN_SELECT_SLOT, WorldsNamesConstants.EVENTS)]

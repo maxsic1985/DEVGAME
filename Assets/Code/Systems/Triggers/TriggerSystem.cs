@@ -29,7 +29,7 @@ namespace MSuhininTestovoe.Devgame
                 .End();
             
             _itemSlotPool = _world.GetPool<ItemComponent>();
-            _dropPool = _world.GetPool<DropComponent>();
+            _dropPool = _world.GetPool<BonusComponent>();
         }
 
         public  void Run(IEcsSystems ecsSystems)

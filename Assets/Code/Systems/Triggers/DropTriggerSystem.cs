@@ -7,7 +7,7 @@ namespace MSuhininTestovoe.Devgame
 {
     public partial class TriggerSystem
     {
-        private EcsPool<DropComponent> _dropPool;
+        private EcsPool<BonusComponent> _dropPool;
         private EcsPool<ItemComponent> _itemSlotPool;
         private EcsFilter _filterItem;
 
@@ -21,22 +21,22 @@ namespace MSuhininTestovoe.Devgame
                 var dropCollider = eventData.collider2D;
 
                 if (player.GetComponent<PlayerActor>() != null
-                    && dropCollider.GetComponent<DropActor>() != null)
+                    && dropCollider.GetComponent<BonusActor>() != null)
                 {
-                    var dropEntity = dropCollider.GetComponent<DropActor>().Entity;
+                    var dropEntity = dropCollider.GetComponent<BonusActor>().Entity;
                     var playerEntity = player.GetComponent<PlayerActor>().Entity;
 
 
                     foreach (var itemEntity in _filterItem)
                     {
                         ref ItemComponent item = ref _itemSlotPool.Get(itemEntity);
-                        ref DropComponent drop = ref _dropPool.Get(dropEntity);
+                        ref BonusComponent bonus = ref _dropPool.Get(dropEntity);
 
                         if (item.Count > 0)
                         {
-                            if (item.DropType == drop.DropType)
+                            if (item.DropType == bonus.DropType)
                             {
-                                UpdateInventory(ref item, ref drop);
+                           
                                
                                 Object.Destroy(dropCollider.gameObject);
                                 _world.DelEntity(dropEntity);
@@ -46,7 +46,7 @@ namespace MSuhininTestovoe.Devgame
                         }
                         else
                         {
-                            UpdateInventory(ref item, ref drop);
+                       
                             
                             Object.Destroy(dropCollider.gameObject);
                             _world.DelEntity(dropEntity);
@@ -62,14 +62,8 @@ namespace MSuhininTestovoe.Devgame
             }
         }
 
-        private static void UpdateInventory(ref ItemComponent item, ref DropComponent drop)
-        {
-            item.Prefab = drop.Drop;
-            item.Sprite.sprite = drop.Sprite;
-            item.DropType = drop.DropType;
-            item.Count += 1;
-            var text = item.Count > 1 ? item.Count.ToString() : " ";
-            item.CountText.text = text;
-        }
+     
     }
+
+   
 }

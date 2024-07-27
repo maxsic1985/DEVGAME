@@ -13,7 +13,7 @@ namespace MSuhininTestovoe.Devgame
         private EcsPool<EnemyHealthComponent> _enemyHealthComponentPool;
         private EcsPool<HealthViewComponent> _healthView;
         private EcsPool<TransformComponent> _transformComponentPool;
-        private EcsPool<IsDropInstantiateFlag> _isDropComponentPool;
+        private EcsPool<IsBonusComponent> _isDropComponentPool;
        // private EcsPool<DropAssetComponent> _dropAssetComponentPool;
         private IPoolService _poolService;
         private PlayerSharedData _sharedData;
@@ -35,7 +35,7 @@ namespace MSuhininTestovoe.Devgame
             _enemyHealthComponentPool = _world.GetPool<EnemyHealthComponent>();
             _healthView = _world.GetPool<HealthViewComponent>();
             _transformComponentPool = _world.GetPool<TransformComponent>();
-            _isDropComponentPool = _world.GetPool<IsDropInstantiateFlag>();
+            _isDropComponentPool = _world.GetPool<IsBonusComponent>();
          //   _dropAssetComponentPool = _world.GetPool<DropAssetComponent>();
             _enemyCntlabel.text = _sharedData.GetPlayerCharacteristic.CurrentCoins.ToString();
         }
