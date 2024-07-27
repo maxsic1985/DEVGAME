@@ -24,7 +24,6 @@ namespace MSuhininTestovoe.Devgame
         private EcsPool<AIDestanationComponent> _aiDestanationComponenPool;
         private EcsPool<AIPathComponent> _aIpathComponenPool;
         private EcsPool<BoxColliderComponent> _enemyBoxColliderComponentPool;
-        private EcsPool<DropAssetComponent> _dropComponentPool;
         private IPoolService _poolService;
 
 
@@ -48,7 +47,6 @@ namespace MSuhininTestovoe.Devgame
             _enemyHealthViewComponentPool = _world.GetPool<HealthViewComponent>();
             _enemyBoxColliderComponentPool = _world.GetPool<BoxColliderComponent>();
             _aiDestanationComponenPool = _world.GetPool<AIDestanationComponent>();
-            _dropComponentPool = _world.GetPool<DropAssetComponent>();
         }
 
 
@@ -84,7 +82,6 @@ namespace MSuhininTestovoe.Devgame
                 ref EnemyStartRotationComponent enemyStartRotationComponent =
                     ref _enemyStartRotationComponentPool.Add(newEntity);
                 ref AIDestanationComponent aiDestanationComponent = ref _aiDestanationComponenPool.Add(newEntity);
-                ref DropAssetComponent dropAssetComponent = ref _dropComponentPool.Add(newEntity);
 
                 spawn.SpawnLenght = dataInit.CountForInstantiate;
                 transformComponent.Value = pooled.gameObject.GetComponent<TransformView>().Transform;
@@ -100,7 +97,6 @@ namespace MSuhininTestovoe.Devgame
                 
                 
                 var dropIndex = Extensions.GetRandomInt(0, dataInit.DropPrefabs.Count);
-                dropAssetComponent.Drop = dataInit.DropPrefabs[dropIndex];
 
                 var enemyIndex = Extensions.GetRandomInt(0, dataInit.StartPositions.Count);
                 enemyStartPositionComponent.Value = dataInit.StartPositions[enemyIndex];

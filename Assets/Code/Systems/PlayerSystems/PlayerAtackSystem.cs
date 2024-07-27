@@ -30,7 +30,7 @@ namespace MSuhininTestovoe.Devgame
 
             _enemyFilter = world
                 .Filter<EnemyHealthComponent>()
-                .Inc<HealthViewComponent>()
+               .Inc<HealthViewComponent>()
                 .End();
             _enemyHealthViewComponentPool = world.GetPool<HealthViewComponent>();
             _enemyHealthComponentPool = world.GetPool<EnemyHealthComponent>();

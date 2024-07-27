@@ -2,7 +2,7 @@
 
 namespace MSuhininTestovoe.Devgame
 {
-    public class DropActor : Actor
+    public class BonusActor : Actor
     {
         [SerializeField] private DropType dropType;
         public DropType DropType => dropType;

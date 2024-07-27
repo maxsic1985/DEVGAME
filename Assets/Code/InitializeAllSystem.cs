@@ -18,8 +18,8 @@ namespace MSuhininTestovoe.Devgame
             new TrapGeneratorSystems(systems);
             new TriggerSystems(systems);
             new PlayerSystems(systems);
+            new BonusSystems(systems);
             new EnemySystems(systems);
-            new DropSystems(systems);
             new MenuSystems(systems);
             new DeathSystems(systems);
           
