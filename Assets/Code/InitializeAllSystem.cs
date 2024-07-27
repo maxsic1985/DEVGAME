@@ -15,16 +15,16 @@ namespace MSuhininTestovoe.Devgame
             new CommonSystems(systems);
             new DataManagerSystems(systems);
             new MapGeneratorSystems(systems);
-            new TrapGeneratorSystems(systems);
-            new TriggerSystems(systems);
+           new TrapGeneratorSystems(systems);
+           new TriggerSystems(systems);
             new PlayerSystems(systems);
-            new BonusSystems(systems);
+           new BonusSystems(systems);
             new EnemySystems(systems);
             new MenuSystems(systems);
             new DeathSystems(systems);
           
             
-            new CameraSystems(systems);
+           new CameraSystems(systems);
             new SoundSystems(systems);
         }
     }
